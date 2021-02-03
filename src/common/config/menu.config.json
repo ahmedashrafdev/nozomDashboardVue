@@ -1,0 +1,56 @@
+{
+  "header": {
+    "self": {},
+    "items": [
+      {
+        "title": "Dashboard",
+        "root": true,
+        "page": "dashboard",
+        "translate": "MENU.DASHBOARD"
+      },
+      {
+        "title": "Cashtry",
+        "root": true,
+        "toggle": "click",
+        "submenu": [
+          {
+            "title": "Analysis",
+            "bullet": "dot",
+            "icon": "flaticon2-list-2",
+            "translate": "MENU.CASHTRAY",
+            "page" : "cashtry"
+
+          }
+        ]
+      }
+    ]
+  },
+  "aside": {
+    "self": {},
+    "items": [
+      {
+        "title": "Dashboard",
+        "root": true,
+        "icon": "flaticon2-architecture-and-city",
+        "page": "dashboard",
+        "translate": "MENU.DASHBOARD",
+        "bullet": "dot"
+      },
+      {
+        "title": "Cashtry",
+        "root": true,
+        "toggle": "click",
+        "submenu": [
+          {
+            "title": "Analysis",
+            "bullet": "dot",
+            "icon": "flaticon2-list-2",
+            "translate": "MENU.CASHTRAY",
+            "page" : "cashtry"
+
+          }
+        ]
+      }
+    ]
+  }
+}

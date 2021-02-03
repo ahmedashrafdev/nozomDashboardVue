@@ -1,0 +1,12 @@
+.my-custom-style {
+  padding: 1rem 0.5rem;
+  color: kt-brand-color();
+}
+
+.my-custom-style .my-custom-element {
+  margin-left: 1rem;
+}
+
+.v-menu__content {
+  z-index: 888 !important;
+}
