@@ -15,7 +15,7 @@
             ></v-text-field>
             <v-container fluid>
               <v-row align="center">
-                <v-col cols="3">
+                <v-col cols="6">
                   <v-select
                     v-model="payload.year"
                     :items="years"
@@ -27,7 +27,7 @@
                     single-line
                   ></v-select>
                 </v-col>
-                <v-col cols="3">
+                <v-col cols="6">
                   <v-select
                     v-model="payload.store"
                     :cache-items="true"

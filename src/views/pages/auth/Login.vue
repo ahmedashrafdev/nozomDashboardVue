@@ -27,7 +27,7 @@
         <b-form class="kt-form" @submit.stop.prevent="onSubmit">
           <div role="alert" class="alert alert-info">
             <div class="alert-text">
-              Use account <strong>halal@nozom.com</strong> and password
+              Use account <strong>halal@elnozom.com</strong> and password
               <strong>123456</strong> to continue.
             </div>
           </div>
@@ -119,7 +119,7 @@ export default {
     return {
       // Remove this dummy login info
       form: {
-        email: "halal@nozom.com",
+        email: "halal@elnozom.com",
         password: "123456",
       },
     };

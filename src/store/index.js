@@ -6,6 +6,7 @@ import htmlClass from "./htmlclass.module";
 import config from "./config.module";
 import breadcrumbs from "./breadcrumbs.module";
 import cashtray from "./cashtray.module";
+import reports from "./reports.module";
 
 Vue.use(Vuex);
 
@@ -14,6 +15,7 @@ export default new Vuex.Store({
     auth,
     htmlClass,
     cashtray,
+    reports,
     config,
     breadcrumbs,
   },

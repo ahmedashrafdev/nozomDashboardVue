@@ -1,8 +1,8 @@
 <template>
   <div class="kt-widget14">
     <div class="kt-widget14__header">
-      <h3 class="kt-widget14__title">Profit Share</h3>
-      <span class="kt-widget14__desc"> Profit Share between customers </span>
+      <h3 class="kt-widget14__title">Branch Revenue</h3>
+      <span class="kt-widget14__desc"> Profit Share between branches </span>
     </div>
     <div class="kt-widget14__content">
       <div class="kt-widget14__chart">
@@ -44,6 +44,14 @@ export default {
   data() {
     return {
       chartOptions: {},
+      dateMenu: false,
+      dateVal:null,
+      maxDate: "2021-2",
+      date:"2020-01",
+      payload: {
+        year: "2020",
+        month: 1,
+      },
     };
   },
   props: {
@@ -56,15 +64,11 @@ export default {
       data: {
         datasets: [
           {
-            data: [35, 30, 35],
-            backgroundColor: [
-              this.layoutConfig("colors.state.success"),
-              this.layoutConfig("colors.state.danger"),
-              this.layoutConfig("colors.state.brand"),
-            ],
+            data: [],
+            backgroundColor: [],
           },
         ],
-        labels: ["Angular", "CSS", "HTML"],
+        labels: [],
       },
       options: {
         cutoutPercentage: 75,
@@ -99,6 +103,33 @@ export default {
         },
       },
     };
+    this.getTopBranches()
+  },
+  methods:{
+    getTopBranches() {
+      this.extractDate(this.date)
+      this.$store.dispatch("reports/getTopBranches", this.payload)
+      .then(res => {
+        let options = this.chartOptions.data
+        res.forEach(item => {
+          options.datasets[0].data.push(parseInt(item.Totalamount))
+          options.datasets[0].backgroundColor.push("#34bfa3")
+          options.labels.push(item.StoreName)
+          console.log(item)
+        });
+        // options.datasets = res.map(item =>{
+        //   return parseFloat(item.TotalAmount).toFixed(2)
+        // });
+        // options.labels = res.map(item =>{
+        //   return item.StoreName
+        // });
+      })
+    },
+    extractDate(d){
+      var res = d.split("-");
+      this.payload.year = res[0]
+      this.payload.month = res[1]
+    },
   },
   computed: {
     ...mapGetters(["layoutConfig"]),

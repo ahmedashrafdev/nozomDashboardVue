@@ -5,6 +5,10 @@
 //
 
 
+@font-face {
+    font-family: "Frutiger";
+    src: local("Frutiger"),   url('~@/assets/fonts/Frutiger-LT-Arabic-55-Roman.ttf');}
+  
 .my-custom-style {
     padding: 1rem 0.5rem;
     color: kt-brand-color();
@@ -16,4 +20,16 @@
 
 .v-menu__content{
     z-index: 888 !important;
+}
+th{
+    text-transform: uppercase;
+}
+
+
+.rtl{
+    font-family: 'Frutiger' !important;
+
+    & th{
+        display: none;
+    }
 }

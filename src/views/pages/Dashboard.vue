@@ -89,6 +89,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch(SET_BREADCRUMB, [{ title: "Dashboard" }]);
+    
   },
   methods: {
     setActiveTab1(event) {
@@ -117,5 +118,6 @@ export default {
       return parseInt(event.target.getAttribute("data-tab"));
     },
   },
+  
 };
 </script>

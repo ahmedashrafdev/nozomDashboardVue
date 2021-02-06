@@ -9,20 +9,29 @@
         "translate": "MENU.DASHBOARD"
       },
       {
-        "title": "Cashtry",
+        "title": "Reports",
         "root": true,
         "toggle": "click",
         "submenu": [
           {
-            "title": "Analysis",
+            "title": "Cashtry Analysis",
             "bullet": "dot",
             "icon": "flaticon2-list-2",
             "translate": "MENU.CASHTRAY",
             "page" : "cashtry"
 
+          },
+          {
+            "title": "Top Sales",
+            "bullet": "dot",
+            "icon": "flaticon2-list-2",
+            "translate": "MENU.TOPSALES",
+            "page" : "topsales"
+
           }
         ]
       }
+
     ]
   },
   "aside": {
@@ -37,16 +46,23 @@
         "bullet": "dot"
       },
       {
-        "title": "Cashtry",
+        "title": "Reports",
         "root": true,
         "toggle": "click",
         "submenu": [
           {
-            "title": "Analysis",
+            "title": "Cashtry Analysis",
             "bullet": "dot",
             "icon": "flaticon2-list-2",
             "translate": "MENU.CASHTRAY",
             "page" : "cashtry"
+          },
+          {
+            "title": "Top Sales",
+            "bullet": "dot",
+            "icon": "flaticon2-list-2",
+            "translate": "MENU.TOPSALES",
+            "page" : "top"
 
           }
         ]

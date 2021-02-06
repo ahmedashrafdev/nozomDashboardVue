@@ -20,6 +20,11 @@ export default new Router({
           name: "cashtry",
           component: () => import("@/views/pages/cashtry/index.vue"),
         },
+        {
+          path: "/top",
+          name: "top",
+          component: () => import("@/views/pages/topsales/index.vue"),
+        },
       ],
     },
     {

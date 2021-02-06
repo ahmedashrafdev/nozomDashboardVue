@@ -1,5 +1,5 @@
 <template>
-  <div class="kt-grid kt-grid--hor kt-grid--root">
+  <div class="kt-grid kt-grid--hor kt-grid--root" :class="{rtl : $i18n.locale == 'ar'}">
     <KTHeaderMobile></KTHeaderMobile>
     <Loader v-if="loaderEnabled" v-bind:logo="loaderLogo"></Loader>
     <div
