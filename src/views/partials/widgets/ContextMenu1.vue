@@ -43,6 +43,6 @@
 export default {
   name: "context-menu-1",
   components: {},
-  mounted() {}
+  mounted() {},
 };
 </script>

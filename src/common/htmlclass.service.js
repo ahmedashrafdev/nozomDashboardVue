@@ -1,7 +1,7 @@
 import objectPath from "object-path";
 import {
   ADD_BODY_CLASSNAME,
-  REMOVE_BODY_CLASSNAME
+  REMOVE_BODY_CLASSNAME,
 } from "@/store/htmlclass.module";
 import store from "@/store";
 import { ADD_CLASSNAME } from "../store/htmlclass.module";
@@ -38,7 +38,7 @@ const HtmlClass = {
         .toString();
       if (_selfBodyClass) {
         const bodyClasses = _selfBodyClass.split(" ");
-        bodyClasses.forEach(cssClass => {
+        bodyClasses.forEach((cssClass) => {
           store.dispatch(ADD_BODY_CLASSNAME, cssClass);
         });
       }
@@ -72,7 +72,7 @@ const HtmlClass = {
       store.dispatch(ADD_BODY_CLASSNAME, "kt-header--fixed");
       store.dispatch(ADD_CLASSNAME, {
         position: "header",
-        className: "kt-header--fixed"
+        className: "kt-header--fixed",
       });
     } else {
       store.dispatch(ADD_BODY_CLASSNAME, "kt-header--static");
@@ -82,7 +82,7 @@ const HtmlClass = {
       store.dispatch(ADD_BODY_CLASSNAME, "kt-header-mobile--fixed");
       store.dispatch(ADD_CLASSNAME, {
         position: "header_mobile",
-        className: "kt-header-mobile--fixed"
+        className: "kt-header-mobile--fixed",
       });
     }
 
@@ -92,7 +92,7 @@ const HtmlClass = {
         className: `kt-header-menu--layout-${objectPath.get(
           this.config,
           "header.menu.self.layout"
-        )}`
+        )}`,
       });
     }
   },
@@ -136,7 +136,7 @@ const HtmlClass = {
       store.dispatch(ADD_BODY_CLASSNAME, "kt-aside--fixed");
       store.dispatch(ADD_CLASSNAME, {
         position: "aside",
-        className: "kt-aside--fixed"
+        className: "kt-aside--fixed",
       });
     } else {
       store.dispatch(ADD_BODY_CLASSNAME, "kt-aside--static");
@@ -151,7 +151,7 @@ const HtmlClass = {
     if (objectPath.get(this.config, "aside.menu.dropdown")) {
       store.dispatch(ADD_CLASSNAME, {
         position: "aside_menu",
-        className: "kt-aside-menu--dropdown"
+        className: "kt-aside-menu--dropdown",
       });
     }
   },
@@ -197,7 +197,7 @@ const HtmlClass = {
         `kt-aside-${objectPath.get(this.config, "aside.self.skin")}`
       );
     }
-  }
+  },
 };
 
 export default HtmlClass;

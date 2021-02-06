@@ -21,13 +21,13 @@ const ApiService = {
   setHeader() {
     Vue.axios.defaults.headers.common[
       "Authorization"
-    ] = `Token ${JwtService.getToken()}`;
+    ] = `Bearer ${JwtService.getToken()}`;
   },
 
   query(resource, params) {
     return Vue.axios
       .get(`${resource}?${serializeQuery(params)}`)
-      .catch(error => {
+      .catch((error) => {
         throw new Error(`[KT] ApiService asdasd ${error}`);
       });
   },
@@ -39,12 +39,11 @@ const ApiService = {
    * @returns {*}
    */
   get(resource, slug = "") {
-    return Vue.axios.get(`${resource}/${slug}`).catch(error => {
+    return Vue.axios.get(`${resource}/${slug}`).catch((error) => {
       // console.log(error);
       throw new Error(`[KT] ApiService ${error}`);
     });
   },
-
 
   /**
    * Set the POST HTTP request
@@ -83,16 +82,18 @@ const ApiService = {
    * @returns {*}
    */
   delete(resource) {
-    return Vue.axios.delete(resource).catch(error => {
+    return Vue.axios.delete(resource).catch((error) => {
       // console.log(error);
       throw new Error(`[RWV] ApiService ${error}`);
     });
-  }
+  },
 };
 
-const serializeQuery = query => {
+const serializeQuery = (query) => {
   return Object.keys(query)
-    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(query[key])}`)
+    .map(
+      (key) => `${encodeURIComponent(key)}=${encodeURIComponent(query[key])}`
+    )
     .join("&");
 };
 export default ApiService;

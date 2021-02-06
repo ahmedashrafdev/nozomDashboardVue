@@ -7,7 +7,7 @@
 
     <div class="kt-quick-panel__nav">
       <ul
-        class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-brand  kt-notification-item-padding-x"
+        class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-brand kt-notification-item-padding-x"
         role="tablist"
       >
         <li class="nav-item active">
@@ -56,9 +56,7 @@
                 <div class="kt-notification__item-title">
                   New order has been received
                 </div>
-                <div class="kt-notification__item-time">
-                  2 hrs ago
-                </div>
+                <div class="kt-notification__item-time">2 hrs ago</div>
               </div>
             </a>
             <a href="#" class="kt-notification__item">
@@ -69,9 +67,7 @@
                 <div class="kt-notification__item-title">
                   New customer is registered
                 </div>
-                <div class="kt-notification__item-time">
-                  3 hrs ago
-                </div>
+                <div class="kt-notification__item-time">3 hrs ago</div>
               </div>
             </a>
             <a href="#" class="kt-notification__item">
@@ -82,9 +78,7 @@
                 <div class="kt-notification__item-title">
                   Application has been approved
                 </div>
-                <div class="kt-notification__item-time">
-                  3 hrs ago
-                </div>
+                <div class="kt-notification__item-time">3 hrs ago</div>
               </div>
             </a>
             <a href="#" class="kt-notification__item">
@@ -95,9 +89,7 @@
                 <div class="kt-notification__item-title">
                   New file has been uploaded
                 </div>
-                <div class="kt-notification__item-time">
-                  5 hrs ago
-                </div>
+                <div class="kt-notification__item-time">5 hrs ago</div>
               </div>
             </a>
             <a href="#" class="kt-notification__item">
@@ -108,9 +100,7 @@
                 <div class="kt-notification__item-title">
                   New user feedback received
                 </div>
-                <div class="kt-notification__item-time">
-                  8 hrs ago
-                </div>
+                <div class="kt-notification__item-time">8 hrs ago</div>
               </div>
             </a>
             <a href="#" class="kt-notification__item">
@@ -121,9 +111,7 @@
                 <div class="kt-notification__item-title">
                   System reboot has been successfully completed
                 </div>
-                <div class="kt-notification__item-time">
-                  12 hrs ago
-                </div>
+                <div class="kt-notification__item-time">12 hrs ago</div>
               </div>
             </a>
             <a href="#" class="kt-notification__item">
@@ -134,9 +122,7 @@
                 <div class="kt-notification__item-title">
                   New order has been placed
                 </div>
-                <div class="kt-notification__item-time">
-                  15 hrs ago
-                </div>
+                <div class="kt-notification__item-time">15 hrs ago</div>
               </div>
             </a>
             <a
@@ -150,9 +136,7 @@
                 <div class="kt-notification__item-title">
                   Company meeting canceled
                 </div>
-                <div class="kt-notification__item-time">
-                  19 hrs ago
-                </div>
+                <div class="kt-notification__item-time">19 hrs ago</div>
               </div>
             </a>
             <a href="#" class="kt-notification__item">
@@ -163,9 +147,7 @@
                 <div class="kt-notification__item-title">
                   New report has been received
                 </div>
-                <div class="kt-notification__item-time">
-                  23 hrs ago
-                </div>
+                <div class="kt-notification__item-time">23 hrs ago</div>
               </div>
             </a>
             <a href="#" class="kt-notification__item">
@@ -176,9 +158,7 @@
                 <div class="kt-notification__item-title">
                   Finance report has been generated
                 </div>
-                <div class="kt-notification__item-time">
-                  25 hrs ago
-                </div>
+                <div class="kt-notification__item-time">25 hrs ago</div>
               </div>
             </a>
             <a href="#" class="kt-notification__item">
@@ -189,9 +169,7 @@
                 <div class="kt-notification__item-title">
                   New customer comment recieved
                 </div>
-                <div class="kt-notification__item-time">
-                  2 days ago
-                </div>
+                <div class="kt-notification__item-time">2 days ago</div>
               </div>
             </a>
             <a href="#" class="kt-notification__item">
@@ -202,9 +180,7 @@
                 <div class="kt-notification__item-title">
                   New customer is registered
                 </div>
-                <div class="kt-notification__item-time">
-                  3 days ago
-                </div>
+                <div class="kt-notification__item-time">3 days ago</div>
               </div>
             </a>
           </div>
@@ -237,9 +213,7 @@
                 <div class="kt-notification-v2__item-title">
                   2 new items submited
                 </div>
-                <div class="kt-notification-v2__item-desc">
-                  by Grog John
-                </div>
+                <div class="kt-notification-v2__item-desc">by Grog John</div>
               </div>
             </a>
 
@@ -265,9 +239,7 @@
                 <div class="kt-notification-v2__item-title">
                   $2900 worth producucts sold
                 </div>
-                <div class="kt-notification-v2__item-desc">
-                  Total 234 items
-                </div>
+                <div class="kt-notification-v2__item-desc">Total 234 items</div>
               </div>
             </a>
 
@@ -293,9 +265,7 @@
                 <div class="kt-notification-v2__item-title">
                   Database server is down
                 </div>
-                <div class="kt-notification-v2__item-desc">
-                  10 mins ago
-                </div>
+                <div class="kt-notification-v2__item-desc">10 mins ago</div>
               </div>
             </a>
 
@@ -502,9 +472,9 @@ export default {
       overlay: true,
       baseClass: "kt-quick-panel",
       closeBy: "kt_quick_panel_close_btn",
-      toggleBy: "kt_quick_panel_toggler_btn"
+      toggleBy: "kt_quick_panel_toggler_btn",
     });
   },
-  methods: {}
+  methods: {},
 };
 </script>

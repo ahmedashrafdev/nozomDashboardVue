@@ -5,13 +5,13 @@ const i18nService = {
     {
       lang: "en",
       name: "English",
-      flag: process.env.BASE_URL + "assets/media/flags/226-united-states.svg"
+      flag: process.env.BASE_URL + "assets/media/flags/226-united-states.svg",
     },
     {
       lang: "ar",
       name: "Arabic",
-      flag: process.env.BASE_URL + "assets/media/flags/195-france.svg"
-    }
+      flag: process.env.BASE_URL + "assets/media/flags/158-egypt.svg",
+    },
   ],
 
   /**
@@ -28,7 +28,7 @@ const i18nService = {
    */
   getActiveLanguage() {
     return localStorage.getItem("language") || this.defaultLanguage;
-  }
+  },
 };
 
 export default i18nService;

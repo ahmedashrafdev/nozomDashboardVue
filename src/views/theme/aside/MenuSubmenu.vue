@@ -16,7 +16,7 @@
           :key="i"
           :class="{
             'kt-menu__item--submenu': menu.submenu,
-            'kt-menu__item--open': activeMenu(menu)
+            'kt-menu__item--open': activeMenu(menu),
           }"
           :data-ktmenu-submenu-toggle="submenuToggle(menu)"
         >
@@ -42,11 +42,11 @@ export default {
   name: "KTMenuSubmenu",
   components: {
     KTMenuItemText,
-    KTMenuSubmenu
+    KTMenuSubmenu,
   },
   props: {
     submenu: Array,
-    parentMenu: Object
+    parentMenu: Object,
   },
   methods: {
     /**
@@ -62,7 +62,7 @@ export default {
     },
     activeMenu(input) {
       const paths = Array.isArray(input) ? input : [input];
-      return paths.some(conf => {
+      return paths.some((conf) => {
         if (conf.submenu) {
           return this.activeMenu(conf.submenu);
         }
@@ -71,7 +71,7 @@ export default {
           return this.$route.path === `/${conf.page}`;
         }
       });
-    }
-  }
+    },
+  },
 };
 </script>

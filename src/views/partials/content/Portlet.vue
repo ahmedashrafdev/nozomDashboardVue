@@ -20,7 +20,7 @@
       v-bind:class="{
         bodyClass,
         'kt-portlet__body--fit': bodyFit,
-        'kt-portlet__body--fluid': bodyFluid
+        'kt-portlet__body--fluid': bodyFluid,
       }"
     >
       <slot name="body"></slot>
@@ -70,7 +70,7 @@ export default {
     /**
      * Set portlet body to fluid
      */
-    bodyFluid: Boolean
+    bodyFluid: Boolean,
   },
   components: {},
   methods: {},
@@ -79,7 +79,7 @@ export default {
       const cls = {
         "kt-portlet--height-fluid": this.fluidHeight,
         "kt-portlet--height-fluid-half": this.fluidHalfHeight,
-        "kt-portlet--head-overlay": this.headOverlay
+        "kt-portlet--head-overlay": this.headOverlay,
       };
       cls[this.headSizeClass] = this.headSizeClass;
       return cls;
@@ -95,7 +95,7 @@ export default {
         return `kt-portlet--head-${this.headSize}`;
       }
       return false;
-    }
-  }
+    },
+  },
 };
 </script>

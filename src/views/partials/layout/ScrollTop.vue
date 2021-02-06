@@ -14,8 +14,8 @@ export default {
   mounted() {
     new KTScrolltop("kt_scrolltop", {
       offset: 300,
-      speed: 600
+      speed: 600,
     });
-  }
+  },
 };
 </script>

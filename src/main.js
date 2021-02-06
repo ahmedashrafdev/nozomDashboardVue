@@ -31,7 +31,9 @@ ApiService.init();
 
 // Ensure we checked auth before each page load.
 router.beforeEach((to, from, next) => {
-  Promise.all([store.dispatch(VERIFY_AUTH)]).then(next);
+  Promise.all([store.dispatch(VERIFY_AUTH)])
+    .then(next)
+    .catch(() => next({ name: "login" }));
 
   // Scroll page to top on every route change
   setTimeout(() => {
@@ -44,5 +46,5 @@ new Vue({
   store,
   i18n,
   vuetify,
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount("#app");

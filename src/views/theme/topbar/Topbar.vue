@@ -74,31 +74,6 @@
     </div>
     <!--end: Quick Actions -->
 
-    <!--begin: My Cart -->
-    <div class="kt-header__topbar-item">
-      <div
-        class="kt-header__topbar-wrapper"
-        id="kt_my_cart_toggle"
-        data-toggle="dropdown"
-      >
-        <span class="kt-header__topbar-icon">
-          <img
-            svg-inline
-            class="kt-svg-icon"
-            src="@/assets/media/icons/svg/Shopping/Cart3.svg"
-            alt=""
-          />
-        </span>
-      </div>
-      <div
-        class="dropdown-menu dropdown-menu-fit dropdown-menu-xl dropdown-menu-right"
-        v-on:click.stop
-      >
-        <KTDropdownMyCart></KTDropdownMyCart>
-      </div>
-    </div>
-    <!--end: My Cart -->
-
     <!--begin: Quick panel toggler -->
     <div
       class="kt-header__topbar-item kt-header__topbar-item--quick-panel"
@@ -145,8 +120,6 @@
         data-toggle="dropdown"
       >
         <div class="kt-header__topbar-user">
-          <span class="kt-header__topbar-welcome kt-hidden-mobile">Hi,</span>
-          <span class="kt-header__topbar-username kt-hidden-mobile">Sean</span>
           <img
             class="kt-hidden"
             alt="Pic"
@@ -175,7 +148,6 @@
 import KTSearchDefault from "@/views/theme/topbar/SearchDefault.vue";
 import KTDropdownNotification from "@/views/theme/topbar/DropdownNotification.vue";
 import KTDropdownQuickAction from "@/views/theme/topbar/DropdownQuickAction.vue";
-import KTDropdownMyCart from "@/views/theme/topbar/DropdownMyCart.vue";
 import KTDropdownLanguage from "@/views/theme/topbar/DropdownLanguage.vue";
 import KTDropdownUser from "@/views/theme/topbar/DropdownUser.vue";
 import i18nService from "@/common/i18n.service.js";
@@ -185,28 +157,27 @@ export default {
   data() {
     return {
       languageFlag: "",
-      languages: i18nService.languages
+      languages: i18nService.languages,
     };
   },
   components: {
     KTSearchDefault,
     KTDropdownNotification,
     KTDropdownQuickAction,
-    KTDropdownMyCart,
     KTDropdownLanguage,
-    KTDropdownUser
+    KTDropdownUser,
   },
   methods: {
     onLanguageChanged() {
-      this.languageFlag = this.languages.find(val => {
+      this.languageFlag = this.languages.find((val) => {
         return val.lang === i18nService.getActiveLanguage();
       }).flag;
-    }
+    },
   },
   computed: {
     getLanguageFlag() {
       return this.onLanguageChanged();
-    }
-  }
+    },
+  },
 };
 </script>

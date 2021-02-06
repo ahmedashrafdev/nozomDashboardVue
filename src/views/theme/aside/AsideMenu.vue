@@ -16,12 +16,12 @@ export default {
   name: "KTAsideMenu",
   components: {
     KTMenuItem,
-    KTMenuSection
+    KTMenuSection,
   },
   computed: {
     menuItems: () => {
       return menuConfig.aside.items;
-    }
-  }
+    },
+  },
 };
 </script>

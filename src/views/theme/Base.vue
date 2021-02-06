@@ -52,7 +52,7 @@ import KTScrollTop from "@/views/partials/layout/ScrollTop";
 import Loader from "@/views/partials/content/Loader.vue";
 import {
   ADD_BODY_CLASSNAME,
-  REMOVE_BODY_CLASSNAME
+  REMOVE_BODY_CLASSNAME,
 } from "@/store/htmlclass.module.js";
 
 export default {
@@ -66,7 +66,7 @@ export default {
     KTStickyToolbar,
     KTQuickPanel,
     KTScrollTop,
-    Loader
+    Loader,
   },
   beforeMount() {
     // show page loading
@@ -93,7 +93,7 @@ export default {
       "isAuthenticated",
       "breadcrumbs",
       "pageTitle",
-      "layoutConfig"
+      "layoutConfig",
     ]),
 
     /**
@@ -142,7 +142,7 @@ export default {
      */
     subheaderDisplay() {
       return !!this.layoutConfig("subheader.display");
-    }
-  }
+    },
+  },
 };
 </script>

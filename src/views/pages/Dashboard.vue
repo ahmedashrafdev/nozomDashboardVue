@@ -10,15 +10,11 @@
             headClass: 'kt-portlet__space-x',
             fluidHalfHeight: true,
             headNoBorder: true,
-            bodyFluid: true
+            bodyFluid: true,
           }"
         >
-          
           <template v-slot:body>
-            <Widget20_1
-              title="670+"
-              desc="Total Cash"
-            ></Widget20_1>
+            <Widget20_1 title="670+" desc="Total Cash"></Widget20_1>
           </template>
         </KTPortlet>
         <!--end:: Widgets/Inbound Bandwidth-->
@@ -82,13 +78,13 @@ export default {
     Widget14_1,
     Widget14_2,
     Widget14_3,
-    Widget20_1
+    Widget20_1,
   },
   data() {
     return {
       timelines: timelines,
       tabIndex: 0,
-      tabIndex2: 0
+      tabIndex2: 0,
     };
   },
   mounted() {
@@ -119,7 +115,7 @@ export default {
 
       // set clicked tab index to bootstrap tab
       return parseInt(event.target.getAttribute("data-tab"));
-    }
-  }
+    },
+  },
 };
 </script>

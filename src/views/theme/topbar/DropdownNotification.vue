@@ -54,7 +54,7 @@
       <b-tab active>
         <perfect-scrollbar
           class="kt-notification kt-margin-t-10 kt-margin-b-10"
-          style="max-height: 40vh; position: relative;"
+          style="max-height: 40vh; position: relative"
         >
           <a href="#" class="kt-notification__item">
             <div class="kt-notification__item-icon">
@@ -194,7 +194,7 @@
       <b-tab>
         <perfect-scrollbar
           class="kt-notification kt-margin-t-10 kt-margin-b-10"
-          style="max-height: 40vh; position: relative;"
+          style="max-height: 40vh; position: relative"
         >
           <a href="#" class="kt-notification__item">
             <div class="kt-notification__item-icon">
@@ -356,7 +356,7 @@
       <b-tab>
         <perfect-scrollbar
           class="kt-notification kt-margin-t-10 kt-margin-b-10"
-          style="max-height: 40vh; position: relative;"
+          style="max-height: 40vh; position: relative"
         >
           <a href="#" class="kt-notification__item">
             <div class="kt-notification__item-icon">
@@ -530,7 +530,7 @@ export default {
   name: "KTDropdownNotification",
   data() {
     return {
-      tabIndex: 0
+      tabIndex: 0,
     };
   },
   methods: {
@@ -547,12 +547,12 @@ export default {
 
       // set current active tab
       event.target.classList.add("active");
-    }
+    },
   },
   computed: {
     backgroundImage() {
       return process.env.BASE_URL + "assets/media/misc/bg-1.jpg";
-    }
-  }
+    },
+  },
 };
 </script>

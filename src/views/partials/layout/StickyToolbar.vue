@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- begin::Sticky Toolbar -->
-    <ul class="kt-sticky-toolbar" style="margin-top: 30px;">
+    <ul class="kt-sticky-toolbar" style="margin-top: 30px">
       <li
         v-b-tooltip.hover.left="'More demos'"
         class="kt-sticky-toolbar__item kt-sticky-toolbar__item--success"
@@ -31,9 +31,7 @@
     <!-- begin::Demo Panel -->
     <div id="kt_demo_panel" ref="kt_demo_panel" class="kt-demo-panel">
       <div class="kt-demo-panel__head">
-        <h3 class="kt-demo-panel__title">
-          Select A Demo
-        </h3>
+        <h3 class="kt-demo-panel__title">Select A Demo</h3>
         <a href="#" class="kt-demo-panel__close" id="kt_demo_panel_close">
           <i class="flaticon2-delete"></i>
         </a>
@@ -42,12 +40,10 @@
         <div
           class="kt-demo-panel__item"
           v-bind:class="{
-            'kt-demo-panel__item--active': isActiveDemo('demo1')
+            'kt-demo-panel__item--active': isActiveDemo('demo1'),
           }"
         >
-          <div class="kt-demo-panel__item-title">
-            Demo1
-          </div>
+          <div class="kt-demo-panel__item-title">Demo1</div>
           <div class="kt-demo-panel__item-preview">
             <img src="@/assets/media/demos/preview/demo1.jpg" alt="" />
             <div class="kt-demo-panel__item-preview-overlay">
@@ -63,12 +59,10 @@
         <div
           class="kt-demo-panel__item"
           v-bind:class="{
-            'kt-demo-panel__item--active': isActiveDemo('demo2')
+            'kt-demo-panel__item--active': isActiveDemo('demo2'),
           }"
         >
-          <div class="kt-demo-panel__item-title">
-            Demo 2
-          </div>
+          <div class="kt-demo-panel__item-title">Demo 2</div>
           <div class="kt-demo-panel__item-preview">
             <img src="@/assets/media/demos/preview/demo2.jpg" alt="" />
             <div class="kt-demo-panel__item-preview-overlay">
@@ -81,12 +75,10 @@
         <div
           class="kt-demo-panel__item"
           v-bind:class="{
-            'kt-demo-panel__item--active': isActiveDemo('demo3')
+            'kt-demo-panel__item--active': isActiveDemo('demo3'),
           }"
         >
-          <div class="kt-demo-panel__item-title">
-            Demo 3
-          </div>
+          <div class="kt-demo-panel__item-title">Demo 3</div>
           <div class="kt-demo-panel__item-preview">
             <img src="@/assets/media/demos/preview/demo3.jpg" alt="" />
             <div class="kt-demo-panel__item-preview-overlay">
@@ -99,12 +91,10 @@
         <div
           class="kt-demo-panel__item"
           v-bind:class="{
-            'kt-demo-panel__item--active': isActiveDemo('demo4')
+            'kt-demo-panel__item--active': isActiveDemo('demo4'),
           }"
         >
-          <div class="kt-demo-panel__item-title">
-            Demo 4
-          </div>
+          <div class="kt-demo-panel__item-title">Demo 4</div>
           <div class="kt-demo-panel__item-preview">
             <img src="@/assets/media/demos/preview/demo4.jpg" alt="" />
             <div class="kt-demo-panel__item-preview-overlay">
@@ -117,12 +107,10 @@
         <div
           class="kt-demo-panel__item"
           v-bind:class="{
-            'kt-demo-panel__item--active': isActiveDemo('demo5')
+            'kt-demo-panel__item--active': isActiveDemo('demo5'),
           }"
         >
-          <div class="kt-demo-panel__item-title">
-            Demo 5
-          </div>
+          <div class="kt-demo-panel__item-title">Demo 5</div>
           <div class="kt-demo-panel__item-preview">
             <img src="@/assets/media/demos/preview/demo5.jpg" alt="" />
             <div class="kt-demo-panel__item-preview-overlay">
@@ -135,12 +123,10 @@
         <div
           class="kt-demo-panel__item"
           v-bind:class="{
-            'kt-demo-panel__item--active': isActiveDemo('demo6')
+            'kt-demo-panel__item--active': isActiveDemo('demo6'),
           }"
         >
-          <div class="kt-demo-panel__item-title">
-            Demo 6
-          </div>
+          <div class="kt-demo-panel__item-title">Demo 6</div>
           <div class="kt-demo-panel__item-preview">
             <img src="@/assets/media/demos/preview/demo6.jpg" alt="" />
             <div class="kt-demo-panel__item-preview-overlay">
@@ -153,12 +139,10 @@
         <div
           class="kt-demo-panel__item"
           v-bind:class="{
-            'kt-demo-panel__item--active': isActiveDemo('demo7')
+            'kt-demo-panel__item--active': isActiveDemo('demo7'),
           }"
         >
-          <div class="kt-demo-panel__item-title">
-            Demo 7
-          </div>
+          <div class="kt-demo-panel__item-title">Demo 7</div>
           <div class="kt-demo-panel__item-preview">
             <img src="@/assets/media/demos/preview/demo7.jpg" alt="" />
             <div class="kt-demo-panel__item-preview-overlay">
@@ -171,12 +155,10 @@
         <div
           class="kt-demo-panel__item"
           v-bind:class="{
-            'kt-demo-panel__item--active': isActiveDemo('demo8')
+            'kt-demo-panel__item--active': isActiveDemo('demo8'),
           }"
         >
-          <div class="kt-demo-panel__item-title">
-            Demo 8
-          </div>
+          <div class="kt-demo-panel__item-title">Demo 8</div>
           <div class="kt-demo-panel__item-preview">
             <img src="@/assets/media/demos/preview/demo8.jpg" alt="" />
             <div class="kt-demo-panel__item-preview-overlay">
@@ -189,12 +171,10 @@
         <div
           class="kt-demo-panel__item"
           v-bind:class="{
-            'kt-demo-panel__item--active': isActiveDemo('demo9')
+            'kt-demo-panel__item--active': isActiveDemo('demo9'),
           }"
         >
-          <div class="kt-demo-panel__item-title">
-            Demo 9
-          </div>
+          <div class="kt-demo-panel__item-title">Demo 9</div>
           <div class="kt-demo-panel__item-preview">
             <img src="@/assets/media/demos/preview/demo9.jpg" alt="" />
             <div class="kt-demo-panel__item-preview-overlay">
@@ -207,12 +187,10 @@
         <div
           class="kt-demo-panel__item"
           v-bind:class="{
-            'kt-demo-panel__item--active': isActiveDemo('demo10')
+            'kt-demo-panel__item--active': isActiveDemo('demo10'),
           }"
         >
-          <div class="kt-demo-panel__item-title">
-            Demo 10
-          </div>
+          <div class="kt-demo-panel__item-title">Demo 10</div>
           <div class="kt-demo-panel__item-preview">
             <img src="@/assets/media/demos/preview/demo10.jpg" alt="" />
             <div class="kt-demo-panel__item-preview-overlay">
@@ -225,12 +203,10 @@
         <div
           class="kt-demo-panel__item"
           v-bind:class="{
-            'kt-demo-panel__item--active': isActiveDemo('demo11')
+            'kt-demo-panel__item--active': isActiveDemo('demo11'),
           }"
         >
-          <div class="kt-demo-panel__item-title">
-            Demo 11
-          </div>
+          <div class="kt-demo-panel__item-title">Demo 11</div>
           <div class="kt-demo-panel__item-preview">
             <img src="@/assets/media/demos/preview/demo11.jpg" alt="" />
             <div class="kt-demo-panel__item-preview-overlay">
@@ -243,12 +219,10 @@
         <div
           class="kt-demo-panel__item"
           v-bind:class="{
-            'kt-demo-panel__item--active': isActiveDemo('demo12')
+            'kt-demo-panel__item--active': isActiveDemo('demo12'),
           }"
         >
-          <div class="kt-demo-panel__item-title">
-            Demo 12
-          </div>
+          <div class="kt-demo-panel__item-title">Demo 12</div>
           <div class="kt-demo-panel__item-preview">
             <img src="@/assets/media/demos/preview/demo12.jpg" alt="" />
             <div class="kt-demo-panel__item-preview-overlay">
@@ -261,12 +235,10 @@
         <div
           class="kt-demo-panel__item"
           v-bind:class="{
-            'kt-demo-panel__item--active': isActiveDemo('demo13')
+            'kt-demo-panel__item--active': isActiveDemo('demo13'),
           }"
         >
-          <div class="kt-demo-panel__item-title">
-            Demo 13
-          </div>
+          <div class="kt-demo-panel__item-title">Demo 13</div>
           <div class="kt-demo-panel__item-preview">
             <img src="@/assets/media/demos/preview/demo13.jpg" alt="" />
             <div class="kt-demo-panel__item-preview-overlay">
@@ -279,12 +251,10 @@
         <div
           class="kt-demo-panel__item"
           v-bind:class="{
-            'kt-demo-panel__item--active': isActiveDemo('demo14')
+            'kt-demo-panel__item--active': isActiveDemo('demo14'),
           }"
         >
-          <div class="kt-demo-panel__item-title">
-            Demo 14
-          </div>
+          <div class="kt-demo-panel__item-title">Demo 14</div>
           <div class="kt-demo-panel__item-preview">
             <img src="@/assets/media/demos/preview/demo14.jpg" alt="" />
             <div class="kt-demo-panel__item-preview-overlay">
@@ -322,13 +292,13 @@ export default {
       overlay: true,
       baseClass: "kt-demo-panel",
       closeBy: "kt_demo_panel_close",
-      toggleBy: "kt_demo_panel_toggle"
+      toggleBy: "kt_demo_panel_toggle",
     });
   },
   methods: {
     isActiveDemo(demo) {
       return demo === objectPath.get(config, "demo");
-    }
-  }
+    },
+  },
 };
 </script>

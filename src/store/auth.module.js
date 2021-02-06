@@ -16,7 +16,7 @@ export const SET_ERROR = "setError";
 const state = {
   errors: null,
   user: {},
-  isAuthenticated: !!JwtService.getToken()
+  isAuthenticated: !!JwtService.getToken(),
 };
 
 const getters = {
@@ -25,19 +25,20 @@ const getters = {
   },
   isAuthenticated(state) {
     return state.isAuthenticated;
-  }
+  },
 };
 
 const actions = {
   [LOGIN](context, credentials) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       ApiService.post("users/login", credentials)
         .then(({ data }) => {
           context.commit(SET_AUTH, data);
+          JwtService.saveToken(data.token);
           resolve(data);
         })
         .catch(({ response }) => {
-          context.commit(SET_ERROR, response);
+          context.commit(SET_ERROR, response.data);
         });
     });
   },
@@ -60,7 +61,7 @@ const actions = {
   [VERIFY_AUTH](context) {
     if (JwtService.getToken()) {
       ApiService.setHeader();
-      ApiService.get("verify")
+      ApiService.get("user")
         .then(({ data }) => {
           context.commit(SET_AUTH, data);
         })
@@ -82,7 +83,7 @@ const actions = {
       context.commit(SET_AUTH, data);
       return data;
     });
-  }
+  },
 };
 
 const mutations = {
@@ -100,12 +101,12 @@ const mutations = {
     state.user = {};
     state.errors = {};
     JwtService.destroyToken();
-  }
+  },
 };
 
 export default {
   state,
   actions,
   mutations,
-  getters
+  getters,
 };

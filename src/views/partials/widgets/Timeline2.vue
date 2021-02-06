@@ -1,7 +1,7 @@
 <template>
   <div class="kt-timeline-v2">
     <div class="kt-timeline-v2__items kt-padding-top-25 kt-padding-bottom-30">
-      <perfect-scrollbar style="max-height: 100vh; position: relative;">
+      <perfect-scrollbar style="max-height: 100vh; position: relative">
         <template v-for="(item, i) in datasrc">
           <div class="kt-timeline-v2__item" :key="`item-${i}`">
             <span class="kt-timeline-v2__item-time">{{ item.time }}</span>
@@ -34,7 +34,7 @@ export default {
   name: "timeline-2",
   components: {},
   props: {
-    datasrc: Array
-  }
+    datasrc: Array,
+  },
 };
 </script>

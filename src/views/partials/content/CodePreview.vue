@@ -142,16 +142,16 @@ import copy from "clipboard-copy";
 export default {
   name: "KTCodePreview",
   props: {
-    title: String
+    title: String,
   },
   data() {
     return {
       tabIndex: 0,
-      isOpen: false
+      isOpen: false,
     };
   },
   components: {
-    KTPortlet
+    KTPortlet,
   },
   methods: {
     /**
@@ -188,7 +188,7 @@ export default {
         text = container.textContent;
       }
       copy(text);
-    }
+    },
   },
   computed: {
     /**
@@ -205,7 +205,7 @@ export default {
      */
     hasSingleCodeType() {
       let exist = 0;
-      ["html", "js", "scss"].forEach(type => {
+      ["html", "js", "scss"].forEach((type) => {
         if (this.$slots.hasOwnProperty(type)) {
           exist++;
         }
@@ -243,7 +243,7 @@ export default {
      */
     hasHtmlCode() {
       return !!this.$slots["html"];
-    }
-  }
+    },
+  },
 };
 </script>

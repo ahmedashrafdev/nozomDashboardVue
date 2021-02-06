@@ -2,20 +2,20 @@ const path = require("path");
 
 module.exports = {
   devServer: {
-    proxy: 'http://192.168.1.40:3000/',
+    proxy: "http://localhost:8585",
   },
   // publicPath: '/metronic/preview/vue/demo1/',
   configureWebpack: {
     resolve: {
       alias: {
         // If using the runtime only build
-        vue$: "vue/dist/vue.runtime.esm.js" // 'vue/dist/vue.runtime.common.js' for webpack 1
+        vue$: "vue/dist/vue.runtime.esm.js", // 'vue/dist/vue.runtime.common.js' for webpack 1
         // Or if using full build of Vue (runtime + compiler)
         // vue$: 'vue/dist/vue.esm.js'      // 'vue/dist/vue.common.js' for webpack 1
-      }
-    }
+      },
+    },
   },
-  chainWebpack: config => {
+  chainWebpack: (config) => {
     config.module
       .rule("vue")
       .use("vue-svg-inline-loader")
@@ -27,7 +27,7 @@ module.exports = {
     config.module
       .rule("eslint")
       .use("eslint-loader")
-      .tap(options => {
+      .tap((options) => {
         options.configFile = path.resolve(__dirname, ".eslintrc.js");
         return options;
       });
@@ -36,16 +36,16 @@ module.exports = {
     loaderOptions: {
       postcss: {
         config: {
-          path: __dirname
-        }
+          path: __dirname,
+        },
       },
       sass: {
-        prependData: `@import "@/assets/sass/global/integration/frameworks/vue/vuetify/variables.scss"`
+        prependData: `@import "@/assets/sass/global/integration/frameworks/vue/vuetify/variables.scss"`,
       },
       scss: {
-        prependData: `@import "@/assets/sass/global/integration/frameworks/vue/vuetify/variables.scss";`
-      }
-    }
+        prependData: `@import "@/assets/sass/global/integration/frameworks/vue/vuetify/variables.scss";`,
+      },
+    },
   },
-  transpileDependencies: ["vuetify"]
+  transpileDependencies: ["vuetify"],
 };

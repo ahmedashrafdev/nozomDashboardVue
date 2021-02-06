@@ -13,12 +13,12 @@ import menuConfig from "@/common/config/menu.config.json";
 export default {
   name: "KTHeaderMenu",
   components: {
-    KTMenuItem
+    KTMenuItem,
   },
   computed: {
     menuItems: () => {
       return menuConfig.header.items;
-    }
-  }
+    },
+  },
 };
 </script>

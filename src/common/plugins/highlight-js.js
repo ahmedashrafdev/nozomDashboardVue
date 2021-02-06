@@ -13,6 +13,6 @@ Vue.use(VueHighlightJS, {
   languages: {
     scss,
     javascript,
-    vue
-  }
+    vue,
+  },
 });

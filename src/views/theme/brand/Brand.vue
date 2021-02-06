@@ -16,7 +16,7 @@
           <img
             svg-inline
             class="kt-svg-icon"
-            src="@/assets/media/icons/svg/Navigation/Angle-double-left.svg"
+            src="@/assets/media/icons/svg/Navigation/Angle-double-right.svg"
             alt=""
           />
         </span>
@@ -45,7 +45,7 @@ export default {
     const asideToggler = new KTToggle(this.$refs["kt_aside_toggler"], {
       target: "body",
       targetState: "kt-aside--minimize",
-      togglerState: "kt-aside__brand-aside-toggler--active"
+      togglerState: "kt-aside__brand-aside-toggler--active",
     });
 
     if (this.allowMinimize) {
@@ -84,14 +84,14 @@ export default {
         logo = logos[Object.keys(logos)[0]];
       }
       return process.env.BASE_URL + logo;
-    }
+    },
   },
   computed: {
     ...mapGetters(["layoutConfig"]),
 
     allowMinimize() {
       return !!this.layoutConfig("aside.self.minimize.toggle");
-    }
-  }
+    },
+  },
 };
 </script>

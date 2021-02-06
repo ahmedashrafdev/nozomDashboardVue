@@ -13,14 +13,14 @@ export default new Router({
         {
           path: "/dashboard",
           name: "dashboard",
-          component: () => import("@/views/pages/Dashboard.vue")
+          component: () => import("@/views/pages/Dashboard.vue"),
         },
         {
           path: "/cashtry",
           name: "cashtry",
-          component: () => import("@/views/pages/cashtry/index.vue")
-        }
-      ]
+          component: () => import("@/views/pages/cashtry/index.vue"),
+        },
+      ],
     },
     {
       path: "/",
@@ -29,19 +29,19 @@ export default new Router({
         {
           name: "login",
           path: "/login",
-          component: () => import("@/views/pages/auth/Login")
-        }
-      ]
+          component: () => import("@/views/pages/auth/Login"),
+        },
+      ],
     },
     {
       path: "*",
-      redirect: "/404"
+      redirect: "/404",
     },
     {
       // the 404 route, when none of the above matches
       path: "/404",
       name: "404",
-      component: () => import("@/views/pages/error/Error-1.vue")
-    }
-  ]
+      component: () => import("@/views/pages/error/Error-1.vue"),
+    },
+  ],
 });

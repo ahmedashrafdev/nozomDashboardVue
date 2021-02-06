@@ -29,7 +29,7 @@ export default {
   name: "KTDropdownLanguage",
   data() {
     return {
-      languages: i18nService.languages
+      languages: i18nService.languages,
     };
   },
   methods: {
@@ -41,7 +41,7 @@ export default {
 
       this.$emit(
         "language-changed",
-        this.languages.find(val => {
+        this.languages.find((val) => {
           return val.lang === lang;
         })
       );
@@ -50,12 +50,12 @@ export default {
     },
     isActiveLanguage(current) {
       return this.activeLanguage === current;
-    }
+    },
   },
   computed: {
     activeLanguage() {
       return i18nService.getActiveLanguage();
-    }
-  }
+    },
+  },
 };
 </script>

@@ -28,9 +28,7 @@
           </div>
           <div class="kt-grid__item">
             <div class="kt-login__info">
-              <div class="kt-login__copyright">
-                © 2020 Metronic
-              </div>
+              <div class="kt-login__copyright">© 2020 Metronic</div>
               <div class="kt-login__menu">
                 <a href="#" class="kt-link">Privacy</a>
                 <a href="#" class="kt-link">Legal</a>
@@ -66,11 +64,11 @@ export default {
   methods: {},
   computed: {
     ...mapState({
-      errors: state => state.auth.errors
+      errors: (state) => state.auth.errors,
     }),
     backgroundImage() {
       return process.env.BASE_URL + "assets/media/bg/bg-4.jpg";
-    }
-  }
+    },
+  },
 };
 </script>

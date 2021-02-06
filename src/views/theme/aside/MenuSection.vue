@@ -10,7 +10,7 @@ export default {
   name: "KTMenuSection",
   components: {},
   props: {
-    menu: Object
-  }
+    menu: Object,
+  },
 };
 </script>

@@ -1,9 +1,7 @@
 <template>
   <div class="kt-widget14">
     <div class="kt-widget14__header">
-      <h3 class="kt-widget14__title">
-        Revenue Change
-      </h3>
+      <h3 class="kt-widget14__title">Revenue Change</h3>
       <span class="kt-widget14__desc">
         Revenue change breakdown by cities
       </span>
@@ -43,16 +41,16 @@ import Chart1 from "@/views/partials/widgets/Chart1.vue";
 export default {
   name: "widget-14-3",
   components: {
-    Chart1
+    Chart1,
   },
   data() {
     return {
-      chartOptions: {}
+      chartOptions: {},
     };
   },
   props: {
     title: String,
-    desc: String
+    desc: String,
   },
   mounted() {
     this.chartOptions = {
@@ -64,11 +62,11 @@ export default {
             backgroundColor: [
               this.layoutConfig("colors.state.success"),
               this.layoutConfig("colors.state.danger"),
-              this.layoutConfig("colors.state.brand")
-            ]
-          }
+              this.layoutConfig("colors.state.brand"),
+            ],
+          },
         ],
-        labels: ["New York", "London", "California"]
+        labels: ["New York", "London", "California"],
       },
       options: {
         cutoutPercentage: 75,
@@ -76,15 +74,15 @@ export default {
         maintainAspectRatio: false,
         legend: {
           display: false,
-          position: "top"
+          position: "top",
         },
         title: {
           display: false,
-          text: "Technology"
+          text: "Technology",
         },
         animation: {
           animateScale: true,
-          animateRotate: true
+          animateRotate: true,
         },
         tooltips: {
           enabled: true,
@@ -99,13 +97,13 @@ export default {
           titleFontColor: "#ffffff",
           cornerRadius: 4,
           footerSpacing: 0,
-          titleSpacing: 0
-        }
-      }
+          titleSpacing: 0,
+        },
+      },
     };
   },
   computed: {
-    ...mapGetters(["layoutConfig"])
-  }
+    ...mapGetters(["layoutConfig"]),
+  },
 };
 </script>

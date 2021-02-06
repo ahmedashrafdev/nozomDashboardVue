@@ -24,14 +24,14 @@ export default {
   components: {},
   props: {
     menu: Object,
-    parentMenu: Object
+    parentMenu: Object,
   },
   methods: {
     /**
      * Get bullet class from config
      * @returns {string} class name
      */
-    bullet: function() {
+    bullet: function () {
       // get the default bullet
       if (!this.menu.bullet) {
         this.menu.bullet = "dot";
@@ -43,14 +43,14 @@ export default {
      * Get current menu link path
      * @returns {{}|{path: string}}
      */
-    link: function() {
+    link: function () {
       // check if no link in this menu item
       if (!this.menu.page) {
         return {};
       }
       // pass the link prepend with slash
       return { path: `/${this.menu.page}` };
-    }
-  }
+    },
+  },
 };
 </script>

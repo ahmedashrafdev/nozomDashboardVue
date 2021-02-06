@@ -7,7 +7,7 @@ export const GET_CASHTRAY = "getCashTray";
 
 const state = {
   errors: null,
-  cashtrayStores:[],
+  cashtrayStores: [],
   datatable: {
     search: "",
     headers: [
@@ -15,7 +15,7 @@ const state = {
         text: "TotalCash",
         value: "TotalCash",
         align: "left",
-        sortable: false
+        sortable: false,
       },
       { text: "TotalOrder", value: "TotalOrder" },
       { text: "TVisa", value: "TVisa" },
@@ -23,11 +23,11 @@ const state = {
       { text: "MonthNo", value: "MonthNo" },
       { text: "AverageCash", value: "AverageCash" },
       { text: "NoOfCashTry", value: "NoOfCashTry" },
-      { text: "AvgBasket", value: "AvgBasket" }
+      { text: "AvgBasket", value: "AvgBasket" },
     ],
-    cashtray: []
+    cashtray: [],
   },
-  isLoading: false
+  isLoading: false,
 };
 
 const getters = {
@@ -40,23 +40,23 @@ const getters = {
   isAuthenticated(state) {
     return state.isAuthenticated;
   },
-  cashtrayStores(state){
-    return state.cashtrayStores
-  }
+  cashtrayStores(state) {
+    return state.cashtrayStores;
+  },
 };
 
 const actions = {
   getCashTray(ctx, payload) {
     ctx.commit("setLoading", true);
     // commit(mutations.setLoading, true);
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       ApiService.query("cashtry", payload)
-        .then(res => {
+        .then((res) => {
           ctx.commit("setLoading", false);
           ctx.commit("setCashtray", res.data);
           resolve(res);
         })
-        .catch(res => {
+        .catch((res) => {
           ctx.commit("setLoading", false);
           ctx.commit("setErr", res);
         });
@@ -65,19 +65,19 @@ const actions = {
   getCashTrayStores(ctx) {
     ctx.commit("setLoading", true);
     // commit(mutations.setLoading, true);
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       ApiService.get("cashtry/stores")
-        .then(res => {
+        .then((res) => {
           ctx.commit("setLoading", false);
           ctx.commit("setCashtrayStores", res.data);
           resolve(res);
         })
-        .catch(res => {
+        .catch((res) => {
           ctx.commit("setLoading", false);
           ctx.commit("setErr", res);
         });
     });
-  }
+  },
 };
 
 const mutations = {
@@ -88,13 +88,13 @@ const mutations = {
     state.isLoading = payload;
   },
   setCashtray(state, payload) {
-    payload = payload == null ? [] : payload
+    payload = payload == null ? [] : payload;
     state.datatable.cashtray = payload;
   },
   setCashtrayStores(state, payload) {
-    payload = payload == null ? [] : payload
+    payload = payload == null ? [] : payload;
     state.cashtrayStores = payload;
-  }
+  },
 };
 
 export default {
@@ -102,5 +102,5 @@ export default {
   state,
   actions,
   mutations,
-  getters
+  getters,
 };

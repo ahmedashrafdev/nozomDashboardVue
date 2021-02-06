@@ -115,12 +115,12 @@ export default {
       this.$store
         .dispatch(LOGOUT)
         .then(() => this.$router.push({ name: "login" }));
-    }
+    },
   },
   computed: {
     backgroundImage() {
       return process.env.BASE_URL + "assets/media/misc/bg-1.jpg";
-    }
-  }
+    },
+  },
 };
 </script>

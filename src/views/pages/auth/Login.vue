@@ -27,8 +27,8 @@
         <b-form class="kt-form" @submit.stop.prevent="onSubmit">
           <div role="alert" class="alert alert-info">
             <div class="alert-text">
-              Use account <strong>admin@demo.com</strong> and password
-              <strong>demo</strong> to continue.
+              Use account <strong>halal@nozom.com</strong> and password
+              <strong>123456</strong> to continue.
             </div>
           </div>
 
@@ -37,8 +37,8 @@
             v-bind:class="{ show: errors.length }"
             class="alert fade alert-danger"
           >
-            <div class="alert-text" v-for="(error, i) in errors" :key="i">
-              {{ error }}
+            <div class="alert-text">
+              {{ errors }}
             </div>
           </div>
 
@@ -81,9 +81,6 @@
 
           <!--begin::Action-->
           <div class="kt-login__actions">
-            <a href="#" class="kt-link kt-login__link-forgot">
-              {{ $t("AUTH.FORGOT.TITLE") }}
-            </a>
             <b-button
               type="submit"
               id="kt_submit"
@@ -95,35 +92,6 @@
           <!--end::Action-->
         </b-form>
         <!--end::Form-->
-
-        <!--begin::Divider-->
-        <div class="kt-login__divider">
-          <div class="kt-divider">
-            <span></span> 
-            <span>OR</span>
-            <span></span>
-          </div>
-        </div>
-        <!--end::Divider-->
-
-        <!--begin::Options-->
-        <div class="kt-login__options">
-          <a href="#" class="btn btn-primary kt-btn">
-            <i class="fab fa-facebook-f"></i>
-            Facebook
-          </a>
-
-          <a href="#" class="btn btn-info kt-btn">
-            <i class="fab fa-twitter"></i>
-            Twitter
-          </a>
-
-          <a href="#" class="btn btn-danger kt-btn">
-            <i class="fab fa-google"></i>
-            Google
-          </a>
-        </div>
-        <!--end::Options-->
       </div>
       <!--end::Signin-->
     </div>
@@ -151,22 +119,22 @@ export default {
     return {
       // Remove this dummy login info
       form: {
-        email: "alice@realworldd.io",
-        password: "secret"
-      }
+        email: "halal@nozom.com",
+        password: "123456",
+      },
     };
   },
   validations: {
     form: {
       email: {
         required,
-        email
+        email,
       },
       password: {
         required,
-        minLength: minLength(3)
-      }
-    }
+        minLength: minLength(3),
+      },
+    },
   },
   methods: {
     validateState(name) {
@@ -176,7 +144,7 @@ export default {
     resetForm() {
       this.form = {
         email: null,
-        password: null
+        password: null,
       };
 
       this.$nextTick(() => {
@@ -207,9 +175,10 @@ export default {
       setTimeout(() => {
         // send login request
         this.$store
-          .dispatch(LOGIN, {  email, password })
+          .dispatch(LOGIN, { email, password })
           // go to which page after successfully login
-          .then(() => this.$router.push({ name: "dashboard" }));
+          .then(() => this.$router.push({ name: "dashboard" }))
+          .catch((e) => this.errors.push(e));
 
         submitButton.classList.remove(
           "kt-spinner",
@@ -217,15 +186,15 @@ export default {
           "kt-spinner--right"
         );
       }, 2000);
-    }
+    },
   },
   computed: {
     ...mapState({
-      errors: state => state.auth.errors
+      errors: (state) => state.auth.errors,
     }),
     backgroundImage() {
       return process.env.BASE_URL + "assets/media/bg/bg-4.jpg";
-    }
-  }
+    },
+  },
 };
 </script>

@@ -4,7 +4,7 @@
       <span class="kt-widget20__number kt-font-brand">{{ title }}</span>
       <span class="kt-widget20__desc">{{ desc }}</span>
     </div>
-    <div class="kt-widget20__chart" style="height:130px;">
+    <div class="kt-widget20__chart" style="height: 130px">
       <Chart1 ref="chart" v-bind:options="chartOptions"></Chart1>
     </div>
   </div>
@@ -18,16 +18,16 @@ import Chart1 from "@/views/partials/widgets/Chart1.vue";
 export default {
   name: "widget-20",
   components: {
-    Chart1
+    Chart1,
   },
   data() {
     return {
-      chartOptions: {}
+      chartOptions: {},
     };
   },
   props: {
     title: String,
-    desc: String
+    desc: String,
   },
   mounted() {
     const ctx = this.$refs["chart"].$el.getContext("2d");
@@ -35,17 +35,11 @@ export default {
     var gradient = ctx.createLinearGradient(0, 0, 0, 240);
     gradient.addColorStop(
       0,
-      Chart.helpers
-        .color("#d1f1ec")
-        .alpha(1)
-        .rgbString()
+      Chart.helpers.color("#d1f1ec").alpha(1).rgbString()
     );
     gradient.addColorStop(
       1,
-      Chart.helpers
-        .color("#d1f1ec")
-        .alpha(0.3)
-        .rgbString()
+      Chart.helpers.color("#d1f1ec").alpha(0.3).rgbString()
     );
 
     const defaults = {
@@ -60,7 +54,7 @@ export default {
           "July",
           "August",
           "September",
-          "October"
+          "October",
         ],
         datasets: [
           {
@@ -80,17 +74,17 @@ export default {
               .color("#000000")
               .alpha(0.1)
               .rgbString(),
-            data: [10, 14, 12, 16, 9, 11, 13, 9, 13, 15]
-          }
-        ]
-      }
+            data: [10, 14, 12, 16, 9, 11, 13, 9, 13, 15],
+          },
+        ],
+      },
     };
 
     this.chartOptions = Object.assign({}, defaults, this.chartOptions);
   },
   computed: {
-    ...mapGetters(["layoutConfig"])
+    ...mapGetters(["layoutConfig"]),
   },
-  methods: {}
+  methods: {},
 };
 </script>

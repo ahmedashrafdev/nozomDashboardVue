@@ -44,7 +44,7 @@ export default {
   name: "KTHeader",
   components: {
     KTHeaderMenu,
-    KTTopbar
+    KTTopbar,
   },
   mounted() {
     new KTOffcanvas(this.$refs["kt_header_menu_wrapper"], {
@@ -53,25 +53,25 @@ export default {
       closeBy: "kt_header_menu_mobile_close_btn",
       toggleBy: {
         target: "kt_header_mobile_toggler",
-        state: "kt-header-mobile__toolbar-toggler--active"
-      }
+        state: "kt-header-mobile__toolbar-toggler--active",
+      },
     });
 
     new KTMenu(this.$refs["kt_header_menu"], {
       submenu: {
         desktop: "dropdown",
         tablet: "accordion",
-        mobile: "accordion"
+        mobile: "accordion",
       },
       accordion: {
         // accordion toggle slide speed in milliseconds
         slideSpeed: 200,
         // allow having multiple expanded accordions in the menu
-        expandAll: false
+        expandAll: false,
       },
       dropdown: {
-        timeout: 50
-      }
+        timeout: 50,
+      },
     });
   },
   computed: {
@@ -107,7 +107,7 @@ export default {
         return classes.join(" ");
       }
       return null;
-    }
-  }
+    },
+  },
 };
 </script>

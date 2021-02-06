@@ -130,7 +130,7 @@ export default {
   name: "KTSubheader",
   props: {
     breadcrumbs: Array,
-    title: String
+    title: String,
   },
   computed: {
     ...mapGetters(["layoutConfig"]),
@@ -140,7 +140,7 @@ export default {
      */
     widthFluid() {
       return this.layoutConfig("subheader.width") === "fluid";
-    }
-  }
+    },
+  },
 };
 </script>

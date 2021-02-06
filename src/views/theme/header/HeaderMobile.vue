@@ -43,7 +43,7 @@ export default {
     new KTToggle(this.$refs["kt_header_mobile_topbar_toggler"], {
       target: "body",
       targetState: "kt-header__topbar--mobile-on",
-      togglerState: "kt-header-mobile__toolbar-topbar-toggler--active"
+      togglerState: "kt-header-mobile__toolbar-topbar-toggler--active",
     });
   },
   computed: {
@@ -67,7 +67,7 @@ export default {
         return classes.join(" ");
       }
       return null;
-    }
-  }
+    },
+  },
 };
 </script>

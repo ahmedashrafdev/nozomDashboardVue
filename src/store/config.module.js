@@ -9,7 +9,7 @@ export const OVERRIDE_LAYOUT_CONFIG = "overrideLayoutConfig";
 
 export default {
   state: {
-    config: config
+    config: config,
   },
   getters: {
     /**
@@ -17,9 +17,9 @@ export default {
      * @param state
      * @returns {function(path, defaultValue): *}
      */
-    layoutConfig: state => (path, defaultValue) => {
+    layoutConfig: (state) => (path, defaultValue) => {
       return objectPath.get(state.config, path, defaultValue);
-    }
+    },
   },
   actions: {
     [SET_LAYOUT_CONFIG](state, payload) {
@@ -27,7 +27,7 @@ export default {
     },
     [OVERRIDE_LAYOUT_CONFIG](state) {
       state.commit(OVERRIDE_LAYOUT_CONFIG);
-    }
+    },
   },
   mutations: {
     [SET_LAYOUT_CONFIG](state, payload) {
@@ -39,6 +39,6 @@ export default {
         state.config,
         JSON.parse(localStorage.getItem("config"))
       );
-    }
-  }
+    },
+  },
 };

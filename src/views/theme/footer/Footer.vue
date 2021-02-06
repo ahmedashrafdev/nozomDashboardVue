@@ -45,10 +45,10 @@ export default {
      */
     isFluid() {
       return this.layoutConfig("footer.self.width") === "fluid";
-    }
+    },
   },
   computed: {
-    ...mapGetters(["layoutConfig"])
-  }
+    ...mapGetters(["layoutConfig"]),
+  },
 };
 </script>

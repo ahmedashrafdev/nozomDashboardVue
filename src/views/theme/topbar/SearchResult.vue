@@ -1,8 +1,6 @@
 <template>
   <div class="kt-quick-search__result">
-    <div v-if="!data" class="kt-quick-search__message">
-      No record found
-    </div>
+    <div v-if="!data" class="kt-quick-search__message">No record found</div>
 
     <template v-for="(item, i) in data">
       <!-- category item -->
@@ -46,7 +44,7 @@
 export default {
   name: "KTSearchResult",
   props: {
-    data: Array
-  }
+    data: Array,
+  },
 };
 </script>

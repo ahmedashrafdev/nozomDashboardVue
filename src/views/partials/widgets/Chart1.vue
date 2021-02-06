@@ -10,13 +10,13 @@ export default {
   name: "chart-1",
   components: {},
   props: {
-    options: Object
+    options: Object,
   },
   mounted() {
     setTimeout(() => this.initChart());
   },
   computed: {
-    ...mapGetters(["layoutConfig"])
+    ...mapGetters(["layoutConfig"]),
   },
   methods: {
     /**
@@ -29,17 +29,11 @@ export default {
       const gradient = ctx.createLinearGradient(0, 0, 0, 240);
       gradient.addColorStop(
         0,
-        Chart.helpers
-          .color("#e14c86")
-          .alpha(1)
-          .rgbString()
+        Chart.helpers.color("#e14c86").alpha(1).rgbString()
       );
       gradient.addColorStop(
         1,
-        Chart.helpers
-          .color("#e14c86")
-          .alpha(0.3)
-          .rgbString()
+        Chart.helpers.color("#e14c86").alpha(0.3).rgbString()
       );
 
       const defaults = {
@@ -62,13 +56,13 @@ export default {
               pointHoverBorderColor: Chart.helpers
                 .color("#ffffff")
                 .alpha(0.1)
-                .rgbString()
-            }
-          ]
+                .rgbString(),
+            },
+          ],
         },
         options: {
           title: {
-            display: false
+            display: false,
           },
           tooltips: {
             mode: "nearest",
@@ -76,10 +70,10 @@ export default {
             position: "nearest",
             xPadding: 10,
             yPadding: 10,
-            caretPadding: 10
+            caretPadding: 10,
           },
           legend: {
-            display: false
+            display: false,
           },
           responsive: true,
           maintainAspectRatio: false,
@@ -90,9 +84,9 @@ export default {
                 gridLines: false,
                 scaleLabel: {
                   display: true,
-                  labelString: "Month"
-                }
-              }
+                  labelString: "Month",
+                },
+              },
             ],
             yAxes: [
               {
@@ -100,38 +94,38 @@ export default {
                 gridLines: false,
                 scaleLabel: {
                   display: true,
-                  labelString: "Value"
+                  labelString: "Value",
                 },
                 ticks: {
-                  beginAtZero: true
-                }
-              }
-            ]
+                  beginAtZero: true,
+                },
+              },
+            ],
           },
           elements: {
             line: {
-              tension: 0.0000001
+              tension: 0.0000001,
             },
             point: {
               radius: 4,
-              borderWidth: 12
-            }
+              borderWidth: 12,
+            },
           },
           layout: {
             padding: {
               left: 0,
               right: 0,
               top: 10,
-              bottom: 0
-            }
-          }
-        }
+              bottom: 0,
+            },
+          },
+        },
       };
 
       let config = Object.assign({}, defaults, this.options);
 
       new Chart(ctx, config);
-    }
-  }
+    },
+  },
 };
 </script>

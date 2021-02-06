@@ -4,7 +4,7 @@
     aria-haspopup="true"
     :class="{
       'kt-menu__item--submenu': menu.submenu,
-      'kt-menu__item--active': activeMenu(menu)
+      'kt-menu__item--active': activeMenu(menu),
     }"
     :data-ktmenu-submenu-toggle="submenuToggle(menu)"
   >
@@ -25,15 +25,15 @@ export default {
   name: "KTMenuItem",
   components: {
     KTMenuItemText,
-    KTMenuSubmenu
+    KTMenuSubmenu,
   },
   props: {
-    menu: Object
+    menu: Object,
   },
   methods: {
     activeMenu(input) {
       const paths = Array.isArray(input) ? input : [input];
-      return paths.some(conf => {
+      return paths.some((conf) => {
         if (conf.submenu) {
           return this.activeMenu(conf.submenu);
         }
@@ -53,7 +53,7 @@ export default {
         return menu.toggle;
       }
       return "hover";
-    }
-  }
+    },
+  },
 };
 </script>

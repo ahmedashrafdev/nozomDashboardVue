@@ -1,6 +1,6 @@
 <template>
   <div class="kt-widget5">
-    <perfect-scrollbar style="max-height: 100vh; position: relative;">
+    <perfect-scrollbar style="max-height: 100vh; position: relative">
       <template v-for="(item, i) in datasrc">
         <div class="kt-widget5__item" :key="`item-${i}`">
           <div class="kt-widget5__content">
@@ -29,7 +29,7 @@ export default {
   name: "widget-5",
   components: {},
   props: {
-    datasrc: Array
-  }
+    datasrc: Array,
+  },
 };
 </script>

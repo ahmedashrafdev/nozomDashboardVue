@@ -27,10 +27,13 @@
                     single-line
                   ></v-select>
                 </v-col>
-                 <v-col cols="3">
+                <v-col cols="3">
                   <v-select
                     v-model="payload.store"
+                    :cache-items="true"
                     @input="getCashTray"
+                    item-text="store_name"
+                    item-value="store_code"
                     :items="cashtrayStores"
                     append-outer-icon="apache-kafka"
                     menu-props="auto"
@@ -48,7 +51,6 @@
             :search="datatable.search"
           ></v-data-table>
         </v-card>
-        <b-btn @click="getCashTray">click</b-btn>
       </div>
     </div>
   </div>
@@ -61,11 +63,11 @@ import { mapGetters } from "vuex";
 export default {
   data() {
     return {
-      years: ["2016", "2017", "2018", "2019", "2020" , "2021"],
+      years: ["2016", "2017", "2018", "2019", "2020", "2021"],
       payload: {
         year: "2020",
-        store: 4
-      }
+        store: 4,
+      },
     };
   },
   computed: {
@@ -73,7 +75,7 @@ export default {
       "isLoading", // -> this.someGetter
       "datatable", // -> this.someOtherGetter
       "cashtrayStores", // -> this.someOtherGetter
-    ])
+    ]),
   },
   methods: {
     getCashTray() {
@@ -81,12 +83,12 @@ export default {
     },
     getCashTrayStores() {
       this.$store.dispatch("cashtray/getCashTrayStores");
-    }
+    },
   },
 
   created() {
     this.getCashTray();
     this.getCashTrayStores();
-  }
+  },
 };
 </script>

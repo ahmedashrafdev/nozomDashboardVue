@@ -24,7 +24,7 @@
       >
         <perfect-scrollbar
           v-if="isMenuFixed"
-          style="max-height: 90vh; position: relative;"
+          style="max-height: 90vh; position: relative"
         >
           <KTAsideMenu></KTAsideMenu>
         </perfect-scrollbar>
@@ -47,15 +47,15 @@ export default {
   data() {
     return {
       insideTm: 0,
-      outsideTm: 0
+      outsideTm: 0,
     };
   },
   components: {
     KTBrand,
-    KTAsideMenu
+    KTAsideMenu,
   },
   mounted() {
-    this.$nextTick(function() {
+    this.$nextTick(function () {
       const menuDesktopMode =
         this.isMenuDropdown && !this.isMenuFixed ? "dropdown" : "accordion";
 
@@ -66,17 +66,17 @@ export default {
           // menu set to accordion in tablet mode
           tablet: "accordion",
           // menu set to accordion in mobile mode
-          mobile: "accordion"
+          mobile: "accordion",
         },
 
         // accordion setup
         accordion: {
           // allow having multiple expanded accordions in the menu
-          expandAll: false
+          expandAll: false,
         },
         dropdown: {
-          timeout: 50
-        }
+          timeout: 50,
+        },
       });
 
       // init offcanvas for sliding menu in mobile mode
@@ -87,8 +87,8 @@ export default {
         toggleBy: {
           // the target button to active the slide menu, located in header mobile component
           target: "kt_aside_mobile_toggler",
-          state: "kt-header-mobile__toolbar-toggler--active"
-        }
+          state: "kt-header-mobile__toolbar-toggler--active",
+        },
       });
     });
   },
@@ -137,7 +137,7 @@ export default {
           }
         }, 100);
       }
-    }
+    },
   },
   computed: {
     ...mapGetters(["layoutConfig", "getClasses"]),
@@ -156,7 +156,7 @@ export default {
         return classes.join(" ");
       }
       return null;
-    }
-  }
+    },
+  },
 };
 </script>
