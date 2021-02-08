@@ -39,6 +39,11 @@ export default new Router({
       ],
     },
     {
+      path: "/server-err",
+      name: "error",
+      component: () => import("@/views/pages/error/Server-Down.vue"),
+    },
+    {
       path: "*",
       redirect: "/404",
     },

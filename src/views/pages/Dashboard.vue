@@ -5,7 +5,7 @@
         <!--begin:: Widgets/Inbound Bandwidth-->
         <KTPortlet
           v-bind="{
-            title: 'Cash Tray',
+            title: 'monthly sales',
             class: 'kt-portlet--fit kt-portlet--head-noborder',
             headClass: 'kt-portlet__space-x',
             fluidHalfHeight: true,
@@ -14,7 +14,7 @@
           }"
         >
           <template v-slot:body>
-            <Widget20_1 title="670+" desc="Total Cash"></Widget20_1>
+            <Widget20_1></Widget20_1>
           </template>
         </KTPortlet>
         <!--end:: Widgets/Inbound Bandwidth-->
@@ -89,7 +89,6 @@ export default {
   },
   mounted() {
     this.$store.dispatch(SET_BREADCRUMB, [{ title: "Dashboard" }]);
-    
   },
   methods: {
     setActiveTab1(event) {
@@ -118,6 +117,5 @@ export default {
       return parseInt(event.target.getAttribute("data-tab"));
     },
   },
-  
 };
 </script>

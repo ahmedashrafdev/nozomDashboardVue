@@ -3,7 +3,11 @@
   <div class="kt-aside__brand kt-grid__item" id="kt_aside_brand">
     <div class="kt-aside__brand-logo">
       <router-link to="/">
-        <img :src="siteLogo()" alt="" />
+        <img
+          src="http://halal.esolve-eg.com/images/logo-light.png"
+          alt="ELNOZOM"
+          class="w-80"
+        />
       </router-link>
     </div>
     <div class="kt-aside__brand-tools" v-if="allowMinimize">

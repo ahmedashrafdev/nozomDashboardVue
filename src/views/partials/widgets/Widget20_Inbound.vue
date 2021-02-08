@@ -1,11 +1,15 @@
 <template>
   <div class="kt-widget20">
     <div class="kt-widget20__content kt-portlet__space-x">
-      <span class="kt-widget20__number kt-font-brand">{{ title }}</span>
-      <span class="kt-widget20__desc">{{ desc }}</span>
+      <span class="kt-widget20__number kt-font-brand">{{sum}}</span>
     </div>
     <div class="kt-widget20__chart" style="height: 130px">
-      <Chart1 ref="chart" v-bind:options="chartOptions"></Chart1>
+      <Chart1
+        ref="chart"
+        v-bind:options="chartOptions"
+        v-if="!isMonthLoading"
+      ></Chart1>
+      <v-progress-circular v-else />
     </div>
   </div>
 </template>
@@ -23,68 +27,74 @@ export default {
   data() {
     return {
       chartOptions: {},
-    };
-  },
-  props: {
-    title: String,
-    desc: String,
-  },
-  mounted() {
-    const ctx = this.$refs["chart"].$el.getContext("2d");
-
-    var gradient = ctx.createLinearGradient(0, 0, 0, 240);
-    gradient.addColorStop(
-      0,
-      Chart.helpers.color("#d1f1ec").alpha(1).rgbString()
-    );
-    gradient.addColorStop(
-      1,
-      Chart.helpers.color("#d1f1ec").alpha(0.3).rgbString()
-    );
-
-    const defaults = {
-      data: {
-        labels: [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-          "August",
-          "September",
-          "October",
-        ],
-        datasets: [
-          {
-            label: "Bandwidth Stats",
-            backgroundColor: gradient,
-            borderColor: this.layoutConfig("colors.state.success"),
-            pointBackgroundColor: Chart.helpers
-              .color("#000000")
-              .alpha(0)
-              .rgbString(),
-            pointBorderColor: Chart.helpers
-              .color("#000000")
-              .alpha(0)
-              .rgbString(),
-            pointHoverBackgroundColor: this.layoutConfig("colors.state.danger"),
-            pointHoverBorderColor: Chart.helpers
-              .color("#000000")
-              .alpha(0.1)
-              .rgbString(),
-            data: [10, 14, 12, 16, 9, 11, 13, 9, 13, 15],
-          },
-        ],
+      sum:null,
+      payload: {
+        Year: `${new Date().getFullYear() - 1}`,
       },
     };
-
-    this.chartOptions = Object.assign({}, defaults, this.chartOptions);
+  },
+  mounted() {
+    this.getMonthlySales();
   },
   computed: {
     ...mapGetters(["layoutConfig"]),
+    ...mapGetters("reports", ["isMonthLoading"]),
   },
-  methods: {},
+  methods: {
+    numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
+    getMonthlySales() {
+      this.$store
+        .dispatch("reports/getMonthlySales", this.payload)
+        .then((d) => {
+            // const ctx = this.$refs["chart"].$el.getContext("2d");
+            // var gradient = ctx.createLinearGradient(0, 0, 0, 240);
+            // gradient.addColorStop(
+            //   0,
+            //   Chart.helpers.color("#d1f1ec").alpha(1).rgbString()
+            // );
+            // gradient.addColorStop(
+            //   1,
+            //   Chart.helpers.color("#d1f1ec").alpha(0.3).rgbString()
+            // );
+            this.sum = `${this.numberWithCommas(parseFloat(d.sum).toFixed(2))} EGP`
+            const defaults = {
+              data: {
+                labels: d.labels,
+                datasets: [
+                  {
+                    label: this.$t("totalAmount"),
+                    backgroundColor: "#4682b4",
+                    borderColor: this.layoutConfig("colors.state.success"),
+                    pointBackgroundColor: Chart.helpers
+                      .color("#000000")
+                      .alpha(0)
+                      .rgbString(),
+                    pointBorderColor: Chart.helpers
+                      .color("#000000")
+                      .alpha(0)
+                      .rgbString(),
+                    pointHoverBackgroundColor: this.layoutConfig(
+                      "colors.state.danger"
+                    ),
+                    pointHoverBorderColor: Chart.helpers
+                      .color("#000000")
+                      .alpha(0.1)
+                      .rgbString(),
+                    data: d.datasets,
+                  },
+                ],
+              },
+            };
+
+            this.chartOptions = Object.assign({}, defaults, this.chartOptions);
+         
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+  },
 };
 </script>

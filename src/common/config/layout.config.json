@@ -6,16 +6,16 @@
 	  "background-image": "assets/media/misc/bg-1.jpg"
 	},
 	"logo": {
-	  "dark": "assets/media/logos/logo-light.png",
-	  "light": "assets/media/logos/logo-dark.png",
-	  "brand": "assets/media/logos/logo-light.png",
-	  "green": "assets/media/logos/logo-light.png"
+	  "dark":  "http://halal.esolve-eg.com/images/logo-light.png",
+	  "light": "http://halal.esolve-eg.com/images/logo-light.png",
+	  "brand": "http://halal.esolve-eg.com/images/logo-light.png",
+	  "green": "http://halal.esolve-eg.com/images/logo-light.png"
 	}
   },
   "loader": {
 	"enabled": true,
 	"type": "spinner-logo",
-	"logo": "assets/media/logos/logo-mini-md.png",
+	"logo": "http://halal.esolve-eg.com/images/icon-logo.png",
 	"message": "Please wait..."
   },
   "colors": {

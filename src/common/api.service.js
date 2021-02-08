@@ -28,7 +28,7 @@ const ApiService = {
     return Vue.axios
       .get(`${resource}?${serializeQuery(params)}`)
       .catch((error) => {
-        throw new Error(`[KT] ApiService asdasd ${error}`);
+        throw new Error(`[KT] ApiService ${error}`);
       });
   },
 

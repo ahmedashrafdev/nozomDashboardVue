@@ -2,22 +2,18 @@
   <div>
     <div class="row">
       <div class="col-md-12">
+        <div class="data-table-header">
+          <h1>{{ $t("cashtray_report") }}</h1>
+          <p class="desc">{{ $t("cashtray_desc") }}</p>
+        </div>
         <v-card>
           <v-card-title>
-            {{ $t("cashtray") }}
-            <v-spacer></v-spacer>
-            <v-text-field
-              v-model="datatable.search"
-              append-icon="search"
-              label="Search"
-              single-line
-              hide-details
-            ></v-text-field>
             <v-container fluid>
               <v-row align="center">
                 <v-col cols="6">
                   <v-select
                     v-model="payload.year"
+                    model="payload.year"
                     :items="years"
                     @input="getCashTray"
                     append-outer-icon="event"
@@ -49,6 +45,10 @@
             :headers="datatable.headers"
             :items="datatable.cashtray"
             :search="datatable.search"
+            :loading="isLoading"
+            hide-default-footer
+            disable-pagination
+            dense
           ></v-data-table>
         </v-card>
       </div>
@@ -62,10 +62,17 @@ import { mapGetters } from "vuex";
 // import { GET_CASHTRAY } from "@/store/cashtray.module";
 export default {
   data() {
+    var max = new Date().getFullYear();
+    var min = max - 10;
+    var years = [];
+
+    for (var i = max; i >= min; i--) {
+      years.push(i);
+    }
     return {
-      years: ["2016", "2017", "2018", "2019", "2020", "2021"],
+      years,
       payload: {
-        year: "2020",
+        year: `${new Date().getFullYear()}`,
         store: 4,
       },
     };
@@ -79,10 +86,14 @@ export default {
   },
   methods: {
     getCashTray() {
-      this.$store.dispatch("cashtray/getCashTray", this.payload);
+      this.$store.dispatch("cashtray/getCashTray", this.payload).catch(() => {
+        this.$router.push({ name: "errpr" });
+      });
     },
     getCashTrayStores() {
-      this.$store.dispatch("cashtray/getCashTrayStores");
+      this.$store.dispatch("cashtray/getCashTrayStores").catch(() => {
+        this.$router.push({ name: "errpr" });
+      });
     },
   },
 

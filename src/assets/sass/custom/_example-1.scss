@@ -4,11 +4,21 @@
 // Most of the changes can be achieved via global or layout level sass variable changes.
 //
 
-
+:root{
+    --primary-color : steelblue
+}
 @font-face {
     font-family: "Frutiger";
-    src: local("Frutiger"),   url('~@/assets/fonts/Frutiger-LT-Arabic-55-Roman.ttf');}
-  
+    src: local("Frutiger"),   url('~@/assets/fonts/Frutiger-LT-Arabic-55-Roman.ttf');
+}
+@font-face {
+    font-family: "Cent";
+    src: local("Cent"),   url('~@/assets/fonts/CenturyGothic.ttf');
+}
+
+.v-application{
+    font-family: "Cent" !important;
+}
 .my-custom-style {
     padding: 1rem 0.5rem;
     color: kt-brand-color();
@@ -31,5 +41,126 @@ th{
 
     & th{
         display: none;
+    }
+}
+
+.font-sm{
+    font-size: 16px !important;
+}
+
+.w-80{
+    width: 80% !important;
+}
+.h-50{
+    height: 50px;
+}
+
+.items-center{
+    align-items: center !important;
+}
+.w-100{
+    width: 100px !important ;
+}
+
+
+.kt-widget14 .kt-widget14__legends .kt-widget14__legend {
+    padding: 0.5rem 0 !important;
+}
+
+.data-table-header{
+    margin-bottom: 30px;
+    & h1{
+        font-size: 40px;
+        font-weight: bold;
+        color:var(--primary-color);
+        transition: all .3s ease-in-out;
+        text-transform: capitalize;
+        @media(max-width: 640px){
+            font-size: 20px;
+        }
+    }
+    & p{
+        font-size: 12px;
+    }
+}
+
+
+.kt-header--fixed.kt-subheader--fixed.kt-subheader--enabled .kt-wrapper {
+    padding-top: 60px !important;
+}
+
+
+tbody{
+    & tr.v-data-table__mobile-table-row{
+        & td{
+            &:first-child{
+            background-color: var(--primary-color);
+            color: #fff;
+            } 
+        }
+    }
+}
+.v-label{
+    @media(max-width: 640px){
+        font-size: 12px !important;
+    }
+}
+.kt-aside--enabled.kt-subheader--fixed .kt-subheader {
+    display: none !important;
+}
+.theme--light.v-data-table > .v-data-table__wrapper > table > thead > tr:last-child > th {
+    font-weight: bold;
+    font-size: 14px !important;
+    color: #000;
+}
+td{
+    text-align: center !important;
+}
+
+.err_wrapper{
+    width: 100vw;
+    background-color: #edeeee;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    & .gif{
+        padding: 0 10px;
+        max-width: 500px;
+        margin-bottom: 30px;
+        & img{
+            max-width: 100%;
+        }
+    }
+    & .header{
+        padding: 0 10px;
+        font-size: 40px;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        @media (max-width :640px) {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        @media (max-width :400px) {
+            font-size: 16px;
+            font-weight: bold;
+        }
+    }
+    & .text{
+        padding: 0 10px;
+        font-size: 16px;
+        @media (max-width :640px) {
+            font-size: 12px;
+        }
+        @media (max-width :400px) {
+            font-size: 10px;
+        }
+        color: var(--primary-color);          
+        text-align: center;
+        max-width: 800px;
+
+
+
     }
 }

@@ -1,5 +1,8 @@
 <template>
-  <div class="kt-grid kt-grid--hor kt-grid--root" :class="{rtl : $i18n.locale == 'ar'}">
+  <div
+    class="kt-grid kt-grid--hor kt-grid--root"
+    :class="{ rtl: $i18n.locale == 'ar' }"
+  >
     <KTHeaderMobile></KTHeaderMobile>
     <Loader v-if="loaderEnabled" v-bind:logo="loaderLogo"></Loader>
     <div
@@ -32,7 +35,6 @@
         <KTFooter></KTFooter>
       </div>
     </div>
-    <KTStickyToolbar v-if="toolbarDisplay"></KTStickyToolbar>
     <KTQuickPanel></KTQuickPanel>
     <KTScrollTop></KTScrollTop>
   </div>
@@ -46,7 +48,6 @@ import KTHeaderMobile from "@/views/theme/header/HeaderMobile.vue";
 import KTFooter from "@/views/theme/footer/Footer.vue";
 import HtmlClass from "@/common/htmlclass.service";
 import KTSubheader from "@/views/theme/subheader/Subheader.vue";
-import KTStickyToolbar from "@/views/partials/layout/StickyToolbar.vue";
 import KTQuickPanel from "@/views/partials/layout/QuickPanel.vue";
 import KTScrollTop from "@/views/partials/layout/ScrollTop";
 import Loader from "@/views/partials/content/Loader.vue";
@@ -63,7 +64,6 @@ export default {
     KTHeaderMobile,
     KTFooter,
     KTSubheader,
-    KTStickyToolbar,
     KTQuickPanel,
     KTScrollTop,
     Loader,

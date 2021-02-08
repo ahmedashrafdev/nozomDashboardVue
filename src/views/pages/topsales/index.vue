@@ -2,46 +2,42 @@
   <div>
     <div class="row">
       <div class="col-md-12">
+        <div class="data-table-header">
+          <h1>{{ $t("topsales_report") }}</h1>
+          <p class="desc">{{ $t("topsales_desc") }}</p>
+        </div>
         <v-card>
           <v-card-title>
-            {{ $t("top_sales") }}
-            <v-spacer></v-spacer>
-            <v-text-field
-              v-model="datatable.search"
-              append-icon="search"
-              label="Search"
-              single-line
-              hide-details
-            ></v-text-field>
             <v-container fluid>
               <v-row align="center">
                 <v-col cols="4">
-                   <v-menu
-                      v-model="dateMenu"
-                      :close-on-content-click="false"
-                      transition="scale-transition"
-                      offset-y 
-                      max-width="290px"
-                      min-width="290px"
-                    >
-                      <template v-slot:activator="{ on }">
-                        <v-text-field
-                          label="Select Date"
-                          prepend-icon="event"
-                          readonly
-                          :value="dateVal"
-                          @input="getTopItems"
-                          v-on="on"
-                        ></v-text-field>
-                      </template>
-                      <v-date-picker
-                        locale="en-in"
-                        type="month"
-                        v-model="date"
-                        no-title
+                  <v-menu
+                    v-model="dateMenu"
+                    :close-on-content-click="false"
+                    transition="scale-transition"
+                    offset-y
+                    max-width="290px"
+                    min-width="290px"
+                  >
+                    <template v-slot:activator="{ on }">
+                      <v-text-field
+                        label="Select Date"
+                        prepend-icon="event"
+                        readonly
+                        :value="date"
                         @input="getTopItems"
-                      ></v-date-picker>
-                    </v-menu>
+                        hide-details
+                        v-on="on"
+                      ></v-text-field>
+                    </template>
+                    <v-date-picker
+                      locale="en-in"
+                      type="month"
+                      v-model="date"
+                      no-title
+                      @input="getTopItems"
+                    ></v-date-picker>
+                  </v-menu>
                 </v-col>
                 <!-- <v-col cols="4">
                   <v-select
@@ -69,7 +65,7 @@
                 </v-col> -->
                 <v-col cols="4">
                   <v-select
-                    v-model="payload.store"
+                    v-model="payload.Store"
                     :cache-items="true"
                     @input="getTopItems"
                     item-text="store_name"
@@ -90,6 +86,9 @@
             :items="datatable.data"
             :search="datatable.search"
             :loading="isLoading"
+            hide-default-footer
+            disable-pagination
+            dense
           ></v-data-table>
         </v-card>
       </div>
@@ -103,18 +102,16 @@ import { mapGetters } from "vuex";
 // import { GET_CASHTRAY } from "@/store/cashtray.module";
 export default {
   data() {
+    let date = new Date();
+    date = `${date.getFullYear()}-${date.getMonth() + 1}`;
     return {
-      stores: [
-        {store_name: this.$t('all'),store_code:0}
-      ],
+      date,
+      stores: [{ store_name: this.$t("all"), store_code: 0 }],
       dateMenu: false,
-      dateVal:null,
-      maxDate: "2021-2",
-      date:"2020-01",
       payload: {
-        year: "2020",
-        store: 4,
-        month: 1,
+        Year: null,
+        Store: 0,
+        Month: null,
       },
     };
   },
@@ -130,19 +127,25 @@ export default {
   },
   methods: {
     getTopItems() {
-      this.extractDate(this.date)
-      this.$store.dispatch("reports/getTopItems", this.payload);
+      this.extractDate(this.date);
+      this.$store.dispatch("reports/getTopItems", this.payload).catch(() => {
+        this.$router.push({ name: "error" });
+      });
     },
-    extractDate(d){
+    extractDate(d) {
       var res = d.split("-");
-      this.payload.year = res[0]
-      this.payload.month = res[1]
+      this.payload.Year = res[0];
+      this.payload.Month = res[1];
     },
     getCashTrayStores() {
-      this.$store.dispatch("cashtray/getCashTrayStores")
-      .then(d => {
-        this.stores = this.stores.concat(d)
-      })
+      this.$store
+        .dispatch("cashtray/getCashTrayStores")
+        .then((d) => {
+          this.stores = this.stores.concat(d);
+        })
+        .catch(() => {
+          this.$router.push({ name: "error" });
+        });
     },
   },
 

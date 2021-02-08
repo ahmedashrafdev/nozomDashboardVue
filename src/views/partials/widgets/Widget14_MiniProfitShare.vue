@@ -1,31 +1,36 @@
 <template>
   <div class="kt-widget14">
     <div class="kt-widget14__header">
-      <h3 class="kt-widget14__title">Branch Revenue</h3>
-      <span class="kt-widget14__desc"> Profit Share between branches </span>
+      <h3 class="kt-widget14__title">{{ $t("branch_revenue") }}</h3>
+      <span class="kt-widget14__desc">
+        {{ $t("share_between_branches") }}
+      </span>
     </div>
     <div class="kt-widget14__content">
       <div class="kt-widget14__chart">
-        <div class="kt-widget14__stat">45</div>
+        <div class="kt-widget14__stat font-sm">{{ topBranchesSum }}</div>
         <Chart1
           ref="chart"
-          v-bind:options="chartOptions"
+          v-if="!isLoading"
+          v-bind:options="topBranchesChartOptions"
           height="150"
           width="150"
         ></Chart1>
+        <v-progress-circular v-else />
       </div>
       <div class="kt-widget14__legends">
-        <div class="kt-widget14__legend">
-          <span class="kt-widget14__bullet kt-bg-success"></span>
-          <span class="kt-widget14__stats">+10% New York</span>
-        </div>
-        <div class="kt-widget14__legend">
-          <span class="kt-widget14__bullet kt-bg-warning"></span>
-          <span class="kt-widget14__stats">-7% London</span>
-        </div>
-        <div class="kt-widget14__legend">
-          <span class="kt-widget14__bullet kt-bg-brand"></span>
-          <span class="kt-widget14__stats">+20% California</span>
+        <div
+          class="kt-widget14__legend"
+          v-for="(branch, index) in topBranches"
+          :key="index"
+        >
+          <span
+            class="kt-widget14__bullet"
+            :style="`background-color:${branch.Color}`"
+          ></span>
+          <span class="kt-widget14__stats"
+            >{{ branch.Percent }}% {{ branch.StoreName }}</span
+          >
         </div>
       </div>
     </div>
@@ -42,15 +47,16 @@ export default {
     Chart1,
   },
   data() {
+    let date = new Date();
+    date = `${date.getFullYear()}-${date.getMonth() + 1}`;
     return {
-      chartOptions: {},
       dateMenu: false,
-      dateVal:null,
-      maxDate: "2021-2",
-      date:"2020-01",
+      dateVal: null,
+      maxDate: date,
+      date,
       payload: {
-        year: "2020",
-        month: 1,
+        year: `${new Date().getFullYear}`,
+        month: `${new Date().getMonth() + 1}`,
       },
     };
   },
@@ -58,81 +64,30 @@ export default {
     title: String,
     desc: String,
   },
-  mounted() {
-    this.chartOptions = {
-      type: "doughnut",
-      data: {
-        datasets: [
-          {
-            data: [],
-            backgroundColor: [],
-          },
-        ],
-        labels: [],
-      },
-      options: {
-        cutoutPercentage: 75,
-        responsive: true,
-        maintainAspectRatio: false,
-        legend: {
-          display: false,
-          position: "top",
-        },
-        title: {
-          display: false,
-          text: "Technology",
-        },
-        animation: {
-          animateScale: true,
-          animateRotate: true,
-        },
-        tooltips: {
-          enabled: true,
-          intersect: false,
-          mode: "nearest",
-          bodySpacing: 5,
-          yPadding: 10,
-          xPadding: 10,
-          caretPadding: 0,
-          displayColors: false,
-          backgroundColor: this.layoutConfig("colors.state.brand"),
-          titleFontColor: "#ffffff",
-          cornerRadius: 4,
-          footerSpacing: 0,
-          titleSpacing: 0,
-        },
-      },
-    };
-    this.getTopBranches()
+  created() {
+    this.getTopBranches();
   },
-  methods:{
+  methods: {
     getTopBranches() {
-      this.extractDate(this.date)
-      this.$store.dispatch("reports/getTopBranches", this.payload)
-      .then(res => {
-        let options = this.chartOptions.data
-        res.forEach(item => {
-          options.datasets[0].data.push(parseInt(item.Totalamount))
-          options.datasets[0].backgroundColor.push("#34bfa3")
-          options.labels.push(item.StoreName)
-          console.log(item)
-        });
-        // options.datasets = res.map(item =>{
-        //   return parseFloat(item.TotalAmount).toFixed(2)
-        // });
-        // options.labels = res.map(item =>{
-        //   return item.StoreName
-        // });
-      })
+      this.extractDate(this.date);
+      this.$store.dispatch("reports/getTopBranches", this.payload).catch(() => {
+        this.$router.push({ name: "error" });
+      });
     },
-    extractDate(d){
+    extractDate(d) {
       var res = d.split("-");
-      this.payload.year = res[0]
-      this.payload.month = res[1]
+      this.payload.year = res[0];
+      this.payload.month = res[1];
     },
   },
   computed: {
     ...mapGetters(["layoutConfig"]),
+    ...mapGetters("reports", [
+      "topBranches", // -> this.someOtherGetter
+      "isLoading",
+      "topBranchesChartOptions",
+      "topBranchesSum", // -> this.someOtherGetter
+    ]),
   },
 };
 </script>

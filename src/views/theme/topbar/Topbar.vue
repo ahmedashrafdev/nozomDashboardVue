@@ -1,95 +1,6 @@
 <template>
   <!-- begin:: Header Topbar -->
   <div class="kt-header__topbar">
-    <!--begin: Search -->
-    <div
-      class="kt-header__topbar-item kt-header__topbar-item--search"
-      id="kt_quick_search_toggle"
-    >
-      <div class="kt-header__topbar-wrapper" data-toggle="dropdown">
-        <span class="kt-header__topbar-icon">
-          <img
-            svg-inline
-            class="kt-svg-icon"
-            src="@/assets/media/icons/svg/General/Search.svg"
-            alt=""
-          />
-        </span>
-      </div>
-      <div
-        class="dropdown-menu dropdown-menu-fit dropdown-menu-lg dropdown-menu-right"
-        v-on:click.stop
-      >
-        <KTSearchDefault></KTSearchDefault>
-      </div>
-    </div>
-    <!--end: Search -->
-
-    <!--begin: Notifications -->
-    <div class="kt-header__topbar-item" id="kt_notification_toggle">
-      <div class="kt-header__topbar-wrapper" data-toggle="dropdown">
-        <span class="kt-header__topbar-icon kt-pulse kt-pulse--brand">
-          <img
-            svg-inline
-            class="kt-svg-icon"
-            src="@/assets/media/icons/svg/Code/Compiling.svg"
-            alt=""
-          />
-          <span class="kt-pulse__ring"></span>
-        </span>
-      </div>
-      <div
-        class="dropdown-menu dropdown-menu-fit dropdown-menu-xl dropdown-menu-right"
-        v-on:click.stop
-      >
-        <form>
-          <KTDropdownNotification></KTDropdownNotification>
-        </form>
-      </div>
-    </div>
-    <!--end: Notifications -->
-
-    <!--begin: Quick Actions -->
-    <div class="kt-header__topbar-item">
-      <div
-        class="kt-header__topbar-wrapper"
-        id="kt_quick_action_toggle"
-        data-toggle="dropdown"
-      >
-        <span class="kt-header__topbar-icon">
-          <img
-            svg-inline
-            class="kt-svg-icon"
-            src="@/assets/media/icons/svg/Media/Equalizer.svg"
-            alt=""
-          />
-        </span>
-      </div>
-      <div
-        class="dropdown-menu dropdown-menu-fit dropdown-menu-xl dropdown-menu-right"
-        v-on:click.stop
-      >
-        <KTDropdownQuickAction></KTDropdownQuickAction>
-      </div>
-    </div>
-    <!--end: Quick Actions -->
-
-    <!--begin: Quick panel toggler -->
-    <div
-      class="kt-header__topbar-item kt-header__topbar-item--quick-panel"
-      v-b-tooltip.hover.bottom="'Quick panel'"
-    >
-      <span class="kt-header__topbar-icon" id="kt_quick_panel_toggler_btn">
-        <img
-          svg-inline
-          class="kt-svg-icon"
-          src="@/assets/media/icons/svg/Layout/Layout-4-blocks.svg"
-          alt=""
-        />
-      </span>
-    </div>
-    <!--end: Quick panel toggler -->
-
     <!--begin: Language bar -->
     <div class="kt-header__topbar-item kt-header__topbar-item--langs">
       <div
@@ -113,31 +24,15 @@
     <!--end: Language bar -->
 
     <!--begin: User Bar -->
-    <div class="kt-header__topbar-item kt-header__topbar-item--user">
-      <div
-        class="kt-header__topbar-wrapper"
-        id="kt_user_toggle"
-        data-toggle="dropdown"
+    <div
+      class="kt-header__topbar-item items-center kt-header__topbar-item--user"
+    >
+      <a
+        href="#"
+        @click.prevent="onLogout"
+        class="btn btn-label btn-label-brand btn-sm btn-bold h-50"
+        >Sign Out</a
       >
-        <div class="kt-header__topbar-user">
-          <img
-            class="kt-hidden"
-            alt="Pic"
-            src="@/assets/media/users/300_25.jpg"
-          />
-          <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
-          <span
-            class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold"
-            >S</span
-          >
-        </div>
-      </div>
-      <div
-        class="dropdown-menu dropdown-menu-fit dropdown-menu-xl dropdown-menu-right"
-        v-on:click.stop
-      >
-        <KTDropdownUser></KTDropdownUser>
-      </div>
     </div>
     <!--end: User Bar -->
   </div>
@@ -145,12 +40,9 @@
 </template>
 
 <script>
-import KTSearchDefault from "@/views/theme/topbar/SearchDefault.vue";
-import KTDropdownNotification from "@/views/theme/topbar/DropdownNotification.vue";
-import KTDropdownQuickAction from "@/views/theme/topbar/DropdownQuickAction.vue";
 import KTDropdownLanguage from "@/views/theme/topbar/DropdownLanguage.vue";
-import KTDropdownUser from "@/views/theme/topbar/DropdownUser.vue";
 import i18nService from "@/common/i18n.service.js";
+import { LOGOUT } from "@/store/auth.module";
 
 export default {
   name: "KTTopbar",
@@ -161,17 +53,18 @@ export default {
     };
   },
   components: {
-    KTSearchDefault,
-    KTDropdownNotification,
-    KTDropdownQuickAction,
     KTDropdownLanguage,
-    KTDropdownUser,
   },
   methods: {
     onLanguageChanged() {
       this.languageFlag = this.languages.find((val) => {
         return val.lang === i18nService.getActiveLanguage();
       }).flag;
+    },
+    onLogout() {
+      this.$store
+        .dispatch(LOGOUT)
+        .then(() => this.$router.push({ name: "login" }));
     },
   },
   computed: {

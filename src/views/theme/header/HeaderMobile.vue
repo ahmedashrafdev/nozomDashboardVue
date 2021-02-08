@@ -6,7 +6,11 @@
   >
     <div class="kt-header-mobile__logo">
       <a href="/">
-        <img alt="Logo" :src="headerLogo" />
+        <img
+          alt="ELNOZOM"
+          src="http://halal.esolve-eg.com/images/logo-light.png"
+          style="width: 60%"
+        />
       </a>
     </div>
     <div class="kt-header-mobile__toolbar">
@@ -14,10 +18,6 @@
         class="kt-header-mobile__toggler kt-header-mobile__toggler--left"
         id="kt_aside_mobile_toggler"
       >
-        <span></span>
-      </button>
-
-      <button class="kt-header-mobile__toggler" id="kt_header_mobile_toggler">
         <span></span>
       </button>
 

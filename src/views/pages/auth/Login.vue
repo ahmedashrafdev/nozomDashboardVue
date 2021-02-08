@@ -1,20 +1,5 @@
 <template>
   <div>
-    <!--begin::Head-->
-    <div class="kt-login__head">
-      <span class="kt-login__signup-label">{{
-        $t("AUTH.GENERAL.NO_ACCOUNT")
-      }}</span
-      >&nbsp;&nbsp;
-      <router-link
-        class="kt-link kt-login__signup-link"
-        :to="{ name: 'register' }"
-      >
-        {{ $t("AUTH.GENERAL.SIGNUP_BUTTON") }}
-      </router-link>
-    </div>
-    <!--end::Head-->
-
     <!--begin::Body-->
     <div class="kt-login__body">
       <!--begin::Signin-->

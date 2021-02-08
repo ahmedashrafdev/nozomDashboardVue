@@ -4,22 +4,22 @@ import ApiService from "@/common/api.service";
 export const GET_CASHTRAY = "getCashTray";
 // mutation types
 // import { i18n } from '@/common/plugins/vue-i18n.js'
-// import { i18n } from './i18n.js' 
-import i18n from '@/common/plugins/vue-i18n.js'
+// import { i18n } from './i18n.js'
+import i18n from "@/common/plugins/vue-i18n.js";
 const state = {
   errors: null,
   cashtrayStores: [],
   datatable: {
     search: "",
     headers: [
-      { text: i18n.t('MonthNo'), value: "MonthNo" },
-      { text: i18n.t('TotalCash'), value: "TotalCash" },
-      { text: i18n.t('TotalOrder'), value: "TotalOrder" },
-      { text: i18n.t('TVisa'), value: "TVisa" },
-      { text: i18n.t('TVoid'), value: "TVoid" },
-      { text: i18n.t('AverageCash'), value: "AverageCash" },
-      { text: i18n.t('NoOfCashTry'), value: "NoOfCashTry" },
-      { text: i18n.t('AvgBasket'), value: "AvgBasket" }
+      { align: "center", text: i18n.t("MonthNo"), value: "MonthNo" },
+      { align: "center", text: i18n.t("TotalCash"), value: "TotalCash" },
+      { align: "center", text: i18n.t("TotalOrder"), value: "TotalOrder" },
+      { align: "center", text: i18n.t("TVisa"), value: "TVisa" },
+      { align: "center", text: i18n.t("TVoid"), value: "TVoid" },
+      { align: "center", text: i18n.t("AverageCash"), value: "AverageCash" },
+      { align: "center", text: i18n.t("NoOfCashTry"), value: "NoOfCashTry" },
+      { align: "center", text: i18n.t("AvgBasket"), value: "AvgBasket" },
     ],
     cashtray: [],
   },
@@ -45,35 +45,38 @@ const actions = {
   getCashTray(ctx, payload) {
     ctx.commit("setLoading", true);
     // commit(mutations.setLoading, true);
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       ApiService.query("cashtry", payload)
         .then((res) => {
           ctx.commit("setLoading", false);
-          const data = res.data.map(item =>{
+          ctx.commit("setCashtray", []);
+          if (res.data.length > 0) {
+            const data = res.data.map((item) => {
               return {
-                MonthNo : i18n.t(`mo${item.MonthNo}`),
-                TotalCash:parseFloat(item.TotalCash).toFixed(2),
-                TotalOrder:parseFloat(item.TotalOrder).toFixed(2),
-                TVisa:parseFloat(item.TVisa).toFixed(2),
-                TVoid:parseFloat(item.TVoid).toFixed(2),
-                AverageCash:parseFloat(item.AverageCash).toFixed(2),
-                NoOfCashTry:parseFloat(item.NoOfCashTry).toFixed(2),
-                AvgBasket:parseFloat(item.AvgBasket).toFixed(2),
-              }
-          });
-          ctx.commit("setCashtray", data);
-          resolve(data);
+                MonthNo: i18n.t(`mo${item.MonthNo}`),
+                TotalCash: `${parseFloat(item.TotalCash).toFixed(2)} EGP`,
+                TotalOrder: parseInt(item.TotalOrder),
+                TVisa: `${parseFloat(item.TVisa).toFixed(2)} EGP`,
+                TVoid: `${parseFloat(item.TVoid).toFixed(2)} EGP`,
+                AverageCash: `${parseFloat(item.AverageCash).toFixed(2)} EGP`,
+                NoOfCashTry: `${parseFloat(item.NoOfCashTry).toFixed(2)} EGP`,
+                AvgBasket: `${parseFloat(item.AvgBasket).toFixed(2)} EGP`,
+              };
+            });
+            ctx.commit("setCashtray", data);
+            resolve(data);
+          }
         })
         .catch((res) => {
           ctx.commit("setLoading", false);
-          ctx.commit("setErr", res);
+          reject(res);
         });
     });
   },
   getCashTrayStores(ctx) {
     ctx.commit("setLoading", true);
     // commit(mutations.setLoading, true);
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       ApiService.get("cashtry/stores")
         .then((res) => {
           ctx.commit("setLoading", false);
@@ -82,7 +85,7 @@ const actions = {
         })
         .catch((res) => {
           ctx.commit("setLoading", false);
-          ctx.commit("setErr", res);
+          reject(res);
         });
     });
   },
