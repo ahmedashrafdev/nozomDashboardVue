@@ -22,11 +22,34 @@
 
           },
           {
+            "title": "Open Cashtray",
+            "bullet": "dot",
+            "icon": "flaticon2-list-2",
+            "translate": "MENU.OPENCASHTRAY",
+            "page" : "cashtry-open"
+
+          },
+          {
             "title": "Top Sales",
             "bullet": "dot",
             "icon": "flaticon2-list-2",
             "translate": "MENU.TOPSALES",
             "page" : "topsales"
+
+          },
+          {
+            "title": "Cash Flow",
+            "bullet": "dot",
+            "icon": "flaticon2-list-2",
+            "translate": "MENU.CASHFLOW",
+            "page" : "cash-flow"
+          },
+          {
+            "title": "Suppliers Balance",
+            "bullet": "dot",
+            "icon": "flaticon2-list-2",
+            "translate": "MENU.SUPPLIERSBALANCE",
+            "page" : "suppliers-balance"
 
           }
         ]
@@ -58,11 +81,35 @@
             "page" : "cashtry"
           },
           {
+            "title": "Open Cashtray",
+            "bullet": "dot",
+            "icon": "flaticon2-list-2",
+            "translate": "MENU.OPENCASHTRAY",
+            "page" : "cashtry-open"
+
+          },
+          {
             "title": "Top Sales",
             "bullet": "dot",
             "icon": "flaticon2-list-2",
             "translate": "MENU.TOPSALES",
             "page" : "top"
+
+          },
+          {
+            "title": "Cash Flow",
+            "bullet": "dot",
+            "icon": "flaticon2-list-2",
+            "translate": "MENU.CASHFLOW",
+            "page" : "cashtry-flow"
+
+          },
+          {
+            "title": "Suppliers Balance",
+            "bullet": "dot",
+            "icon": "flaticon2-list-2",
+            "translate": "MENU.SUPPLIERSBALANCE",
+            "page" : "suppliers-balance"
 
           }
         ]

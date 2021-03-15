@@ -30,7 +30,7 @@
                     @input="getCashTray"
                     item-text="store_name"
                     item-value="store_code"
-                    :items="cashtrayStores"
+                    :items="stores"
                     append-outer-icon="apache-kafka"
                     menu-props="auto"
                     hide-details
@@ -49,7 +49,9 @@
             hide-default-footer
             disable-pagination
             dense
-          ></v-data-table>
+          >
+            
+          </v-data-table>
         </v-card>
       </div>
     </div>
@@ -71,9 +73,12 @@ export default {
     }
     return {
       years,
+      stores: [
+        { store_name: this.$t("all"), store_code: 0 }
+      ],
       payload: {
         year: `${new Date().getFullYear()}`,
-        store: 4,
+        store: 0,
       },
     };
   },
@@ -81,18 +86,16 @@ export default {
     ...mapGetters("cashtray", [
       "isLoading", // -> this.someGetter
       "datatable", // -> this.someOtherGetter
-      "cashtrayStores", // -> this.someOtherGetter
     ]),
   },
   methods: {
     getCashTray() {
-      this.$store.dispatch("cashtray/getCashTray", this.payload).catch(() => {
-        this.$router.push({ name: "errpr" });
-      });
+      this.$store.dispatch("cashtray/getCashTray", this.payload);
     },
     getCashTrayStores() {
-      this.$store.dispatch("cashtray/getCashTrayStores").catch(() => {
-        this.$router.push({ name: "errpr" });
+      this.$store.dispatch("cashtray/getCashTrayStores")
+      .then((d) => {
+        this.stores = this.stores.concat(d);
       });
     },
   },

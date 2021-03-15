@@ -21,11 +21,28 @@ export default new Router({
           component: () => import("@/views/pages/cashtry/index.vue"),
         },
         {
+          path: "/cashtry-open",
+          name: "cashtry-open",
+          component: () => import("@/views/pages/cashtry/open.vue"),
+        },
+        {
           path: "/top",
           name: "top",
           component: () => import("@/views/pages/topsales/index.vue"),
         },
+        {
+          path: "/suppliers-balance",
+          name: "suppliers-balance",
+          component: () => import("@/views/pages/suppliers/balnace.vue"),
+        },
+        {
+          path: "/cash-flow",
+          name: "cash-flow",
+          component: () => import("@/views/pages/cashtry/flow.vue"),
+        },
       ],
+      
+      
     },
     {
       path: "/",

@@ -128,9 +128,7 @@ export default {
   methods: {
     getTopItems() {
       this.extractDate(this.date);
-      this.$store.dispatch("reports/getTopItems", this.payload).catch(() => {
-        this.$router.push({ name: "error" });
-      });
+      this.$store.dispatch("reports/getTopItems", this.payload)
     },
     extractDate(d) {
       var res = d.split("-");
@@ -138,14 +136,10 @@ export default {
       this.payload.Month = res[1];
     },
     getCashTrayStores() {
-      this.$store
-        .dispatch("cashtray/getCashTrayStores")
-        .then((d) => {
-          this.stores = this.stores.concat(d);
-        })
-        .catch(() => {
-          this.$router.push({ name: "error" });
-        });
+      this.$store.dispatch("cashtray/getCashTrayStores")
+      .then((d) => {
+        this.stores = this.stores.concat(d);
+      });
     },
   },
 

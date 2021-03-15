@@ -45,6 +45,13 @@ const ApiService = {
     });
   },
 
+  list(resource) {
+    return Vue.axios.get(`${resource}`).catch((error) => {
+      // console.log(error);
+      throw new Error(`[KT] ApiService ${error}`);
+    });
+  },
+
   /**
    * Set the POST HTTP request
    * @param resource

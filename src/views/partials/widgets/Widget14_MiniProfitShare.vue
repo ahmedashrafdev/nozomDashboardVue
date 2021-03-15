@@ -1,18 +1,18 @@
 <template>
   <div class="kt-widget14">
     <div class="kt-widget14__header">
-      <h3 class="kt-widget14__title">{{ $t("branch_revenue") }}</h3>
+      <h3 class="kt-widget14__title">{{ $t("branch_profit") }}</h3>
       <span class="kt-widget14__desc">
-        {{ $t("share_between_branches") }}
+        {{ $t("branch_profit_share") }}
       </span>
     </div>
     <div class="kt-widget14__content">
       <div class="kt-widget14__chart">
-        <div class="kt-widget14__stat font-sm">{{ topBranchesSum }}</div>
+        <div class="kt-widget14__stat font-sm">{{ topBranchesProfitSum }}</div>
         <Chart1
           ref="chart"
-          v-if="!isLoading"
-          v-bind:options="topBranchesChartOptions"
+          v-if="!isProfitLoading"
+          v-bind:options="topBranchesProfitChartOptions"
           height="150"
           width="150"
         ></Chart1>
@@ -21,7 +21,7 @@
       <div class="kt-widget14__legends">
         <div
           class="kt-widget14__legend"
-          v-for="(branch, index) in topBranches"
+          v-for="(branch, index) in topBranchesProfit"
           :key="index"
         >
           <span
@@ -65,14 +65,12 @@ export default {
     desc: String,
   },
   created() {
-    this.getTopBranches();
+    this.getTopBranchesProfit();
   },
   methods: {
-    getTopBranches() {
+    getTopBranchesProfit() {
       this.extractDate(this.date);
-      this.$store.dispatch("reports/getTopBranches", this.payload).catch(() => {
-        this.$router.push({ name: "error" });
-      });
+      this.$store.dispatch("reports/getTopBranchesProfit", this.payload);
     },
     extractDate(d) {
       var res = d.split("-");
@@ -83,10 +81,10 @@ export default {
   computed: {
     ...mapGetters(["layoutConfig"]),
     ...mapGetters("reports", [
-      "topBranches", // -> this.someOtherGetter
-      "isLoading",
-      "topBranchesChartOptions",
-      "topBranchesSum", // -> this.someOtherGetter
+      "topBranchesProfit", // -> this.someOtherGetter
+      "isProfitLoading",
+      "topBranchesProfitChartOptions",
+      "topBranchesProfitSum", // -> this.someOtherGetter
     ]),
   },
 };

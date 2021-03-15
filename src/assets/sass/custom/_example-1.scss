@@ -38,10 +38,6 @@ th{
 
 .rtl{
     font-family: 'Frutiger' !important;
-
-    & th{
-        display: none;
-    }
 }
 
 .font-sm{
@@ -162,5 +158,24 @@ td{
 
 
 
+    }
+}
+
+.chart-flex{
+    display: flex;
+    justify-content: space-between;
+    & .v-input{
+        max-width: 120px !important;
+        & .v-label{
+            font-size: 12px !important;
+        }
+    }
+}
+.text-center{
+    text-align: center !important;
+}
+.sm-hidden{
+    @media (max-width:600px){
+      display:none
     }
 }

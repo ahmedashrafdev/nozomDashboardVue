@@ -6,7 +6,8 @@
         <KTPortlet
           v-bind="{
             title: 'monthly sales',
-            class: 'kt-portlet--fit kt-portlet--head-noborder',
+            class:
+              'kt-portlet--fit kt-portlet--head-noborder t-portlet--height-fluid',
             headClass: 'kt-portlet__space-x',
             fluidHalfHeight: true,
             headNoBorder: true,
