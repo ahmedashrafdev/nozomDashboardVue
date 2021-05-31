@@ -1,7 +1,7 @@
 <template>
   <div class="kt-widget14">
     <div class="kt-widget14__header kt-margin-b-30">
-      <h3 class="kt-widget14__title">Daily Sales</h3>
+      <h3 class="kt-widget14__title">{{$t('daily_sales')}}</h3>
       <span class="kt-widget14__desc">
         {{ sum }}
       </span>

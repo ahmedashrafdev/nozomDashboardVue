@@ -10,13 +10,7 @@
 
         <!--begin::Form-->
         <b-form class="kt-form" @submit.stop.prevent="onSubmit">
-          <div role="alert" class="alert alert-info">
-            <div class="alert-text">
-              Use account <strong>local@elnozom.com</strong> and password
-              <strong>123456</strong> to continue.
-            </div>
-          </div>
-
+          
           <div
             role="alert"
             v-bind:class="{ show: errors.length }"
@@ -104,7 +98,7 @@ export default {
     return {
       // Remove this dummy login info
       form: {
-        email: "local@elnozom.com",
+        email: "dental@elnozom.com",
         password: "123456",
       },
     };

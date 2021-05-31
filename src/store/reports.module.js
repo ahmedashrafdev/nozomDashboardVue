@@ -246,6 +246,7 @@ const actions = {
           let datasets = [];
           let colors = [];
           let labels = [];
+          res.data = res.data.sort((a, b) => a.StoreName.localeCompare(b.StoreName));
           res.data.forEach((item, index) => {
             datasets.push(parseFloat(item.Totalamount).toFixed(2));
             colors.push(ctx.state.colors[index]);
@@ -289,6 +290,7 @@ const actions = {
           let profitDatasets = [];
           let colors = [];
           let labels = [];
+          res.data = res.data.sort((a, b) => a.StoreName.localeCompare(b.StoreName));
           res.data.forEach((item, index) => {
             profitDatasets.push(parseFloat(item.Profit).toFixed(2));
             colors.push(ctx.state.colors[index]);

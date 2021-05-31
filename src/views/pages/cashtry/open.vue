@@ -11,7 +11,7 @@
             <v-text-field
               v-model="OpenCashtryDatatable.search"
               append-icon="mdi-magnify"
-              label="Search"
+              :label="$t('search')"
               single-line
               hide-details
             ></v-text-field>

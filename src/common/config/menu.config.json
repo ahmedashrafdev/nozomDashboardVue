@@ -12,6 +12,8 @@
         "title": "Reports",
         "root": true,
         "toggle": "click",
+        "translate": "MENU.REPORTS",
+
         "submenu": [
           {
             "title": "Cashtry Analysis",
@@ -72,6 +74,7 @@
         "title": "Reports",
         "root": true,
         "toggle": "click",
+        "translate": "MENU.REPORTS",
         "submenu": [
           {
             "title": "Cashtry Analysis",
@@ -101,7 +104,7 @@
             "bullet": "dot",
             "icon": "flaticon2-list-2",
             "translate": "MENU.CASHFLOW",
-            "page" : "cashtry-flow"
+            "page" : "cash-flow"
 
           },
           {

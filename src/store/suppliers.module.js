@@ -18,13 +18,17 @@ const state = {
         { align : "center"  , text: i18n.t('AccountName'), value: "AccountName"},
         { align : "center"  , text: i18n.t('DBT'), value: "DBT"},
         { align : "center"  , text: i18n.t('CRDT'), value: "CRDT"},
-        { align : "center"  , text: i18n.t('ReturnBuy'), value: "ReturnBuy"},
         { align : "center"  , text: i18n.t('Buy'), value: "Buy"},
+        { align : "center"  , text: i18n.t('ReturnBuy'), value: "ReturnBuy"},
+        { align : "center"  , text: i18n.t('Discount'), value: "Discount"},
+        { align : "center"  , text: i18n.t('NetBuy'), value: "NetBuy"},
         { align : "center"  , text: i18n.t('Paid'), value: "Paid"},
         { align : "center"  , text: i18n.t('CHEQUE'), value: "CHEQUE"},
         { align : "center"  , text: i18n.t('CHQUnderCollec'), value: "CHQUnderCollec"},
-        { align : "center"  , text: i18n.t('Discount'), value: "Discount"},
+        { align : "center"  , text: i18n.t('BalanceDebit'), value: "BalanceDebit"},
+        { align : "center"  , text: i18n.t('BalanceCredit'), value: "BalanceCredit"},
     ],
+    totals: {},
     data: [],
   },
   isLoading: false,
@@ -51,11 +55,49 @@ const actions = {
             ctx.commit("setLoading", false);
             ctx.commit("setDatatable", []);
             if (res.data.length > 0) {
+              let totals = {
+                DBT : 0,
+                CRDT : 0,
+                Buy : 0,
+                ReturnBuy : 0,
+                Discount : 0,
+                NetBuy : 0,
+                Paid : 0,
+                CHEQUE : 0,
+                CHQUnderCollec : 0,
+                BalanceDebit : 0,
+                BalanceCredit : 0,
+              }
               const data = res.data.map((item) => {
+                const NetBuy =  item.Buy - item.ReturnBuy - item.Discount
+                let BalanceCredit =  0
+                let BalanceDebit = 0 
+                const Balance =  NetBuy + item.CRDT - item.Paid - item.CHEQUE -item.DBT
+                
+                if(Balance > 0){
+                   BalanceCredit =  Balance
+                } else {
+                  BalanceDebit = ~Balance + 1
+                }
+                console.log(item)
+                totals.DBT =parseFloat(totals.DBT) + parseFloat(item.DBT)
+                totals.CRDT =parseFloat(totals.CRDT) + parseFloat(item.CRDT)
+                totals.Buy =parseFloat(totals.Buy) + parseFloat(item.Buy)
+                totals.ReturnBuy =parseFloat(totals.ReturnBuy) + parseFloat(item.ReturnBuy)
+                totals.Discount =parseFloat(totals.CRDT) + parseFloat(item.CRDT)
+                totals.NetBuy =parseFloat(totals.NetBuy) + parseFloat(NetBuy)
+                totals.Paid =parseFloat(totals.Paid) + parseFloat(item.Paid)
+                totals.CHEQUE =parseFloat(totals.CHEQUE) + parseFloat(item.CHEQUE)
+                totals.CHQUnderCollec =parseFloat(totals.CHQUnderCollec) + parseFloat(item.CHQUnderCollec)
+                totals.BalanceDebit =parseFloat(totals.BalanceDebit) + parseFloat(BalanceDebit)
+                totals.BalanceCredit =parseFloat(totals.BalanceCredit) + parseFloat(BalanceCredit)
                 return {
                     AccountCode : item.AccountCode, 
                     AccountName : item.AccountName, 
                     DBT : `${numberWithCommas(parseFloat(item.DBT).toFixed(2))} EGP`, 
+                    NetBuy : `${numberWithCommas(parseFloat(NetBuy).toFixed(2))} EGP`, 
+                    BalanceDebit : `${numberWithCommas(parseFloat(BalanceDebit).toFixed(2))} EGP`, 
+                    BalanceCredit : `${numberWithCommas(parseFloat(BalanceCredit).toFixed(2))} EGP`, 
                     CRDT : `${numberWithCommas(parseFloat(item.CRDT).toFixed(2))} EGP`, 
                     ReturnBuy : `${numberWithCommas(parseFloat(item.ReturnBuy).toFixed(2))} EGP`, 
                     Buy : `${numberWithCommas(parseFloat(item.Buy).toFixed(2))} EGP`, 
@@ -66,6 +108,7 @@ const actions = {
                 };
               });
               ctx.commit("setDatatable", data);
+              ctx.commit("setTotals", totals);
               resolve(data);
             }
         })
@@ -86,6 +129,9 @@ const mutations = {
   },
   setLoading(state, payload) {
     state.isLoading = payload;
+  },
+  setTotals(state, payload) {
+    state.SuppliersDatatable.totals = payload;
   },
 };
 

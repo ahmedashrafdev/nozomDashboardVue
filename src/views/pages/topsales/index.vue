@@ -21,7 +21,7 @@
                   >
                     <template v-slot:activator="{ on }">
                       <v-text-field
-                        label="Select Date"
+                        :label="$t('select_date')"
                         prepend-icon="event"
                         readonly
                         :value="date"
@@ -74,7 +74,7 @@
                     append-outer-icon="apache-kafka"
                     menu-props="auto"
                     hide-details
-                    label="Select Store"
+                    :label="$t('select_store')"
                     single-line
                   ></v-select>
                 </v-col>
@@ -88,6 +88,8 @@
             :loading="isLoading"
             hide-default-footer
             disable-pagination
+            fixed-header
+            height="600px"
             dense
           ></v-data-table>
         </v-card>

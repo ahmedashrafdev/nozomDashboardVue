@@ -31,7 +31,7 @@
         href="#"
         @click.prevent="onLogout"
         class="btn btn-label btn-label-brand btn-sm btn-bold h-50"
-        >Sign Out</a
+        >{{$t('sign_out')}}</a
       >
     </div>
     <!--end: User Bar -->

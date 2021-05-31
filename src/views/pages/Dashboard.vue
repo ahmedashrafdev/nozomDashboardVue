@@ -5,7 +5,7 @@
         <!--begin:: Widgets/Inbound Bandwidth-->
         <KTPortlet
           v-bind="{
-            title: 'monthly sales',
+            title: $t('monthly_sales'),
             class:
               'kt-portlet--fit kt-portlet--head-noborder t-portlet--height-fluid',
             headClass: 'kt-portlet__space-x',

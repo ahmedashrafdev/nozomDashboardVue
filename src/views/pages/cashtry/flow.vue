@@ -3,8 +3,8 @@
     <div class="row">
       <div class="col-md-12">
         <div class="data-table-header">
-          <h1>{{ $t("cashtray_report") }}</h1>
-          <p class="desc">{{ $t("cashtray_desc") }}</p>
+          <h1>{{ $t("flow_report") }}</h1>
+          <p class="desc">{{ $t("flow_desc") }}</p>
         </div>
         <v-card>
           <v-card-title>
@@ -19,13 +19,13 @@
                     append-outer-icon="event"
                     menu-props="auto"
                     hide-details
-                    label="Select Year"
+                    :label="$t('select_year')"
                     single-line
                   ></v-select>
                 </v-col>
                 <v-col cols="6">
                   <v-select
-                    v-model="payload.AccSerial"
+                    v-model="AccSerial"
                     :cache-items="true"
                     @input="getCashFlow"
                     item-text="AccountName"
@@ -35,7 +35,7 @@
                     append-outer-icon="apache-kafka"
                     menu-props="auto"
                     hide-details
-                    label="Select Account"
+                    :label="$t('select_account')"
                     single-line
                   ></v-select>
                 </v-col>
@@ -55,7 +55,7 @@
                     >
                       <template v-slot:activator="{ on }">
                         <v-text-field
-                          label="From Date"
+                          :label="$t('from_date')"
                           prepend-icon="event"
                           readonly
                           :value="datePayload.DateFrom"
@@ -85,7 +85,7 @@
                     >
                       <template v-slot:activator="{ on }">
                         <v-text-field
-                          label="From Date"
+                          :label="$t('to_date')"
                           prepend-icon="event"
                           readonly
                           :value="datePayload.DateTo"
@@ -105,15 +105,18 @@
               </v-row>
             </v-container>
           </v-card-title>
-          <v-data-table
-            :headers="flowDatatable.headers"
-            :items="flowDatatable.data"
-            :search="flowDatatable.search"
-            :loading="isLoading"
+          <div class="relative">
+            <v-data-table
+              :headers="flowDatatable.headers"
+              :items="flowDatatable.data"
+              :search="flowDatatable.search"
+              :loading="isLoading"
+              :fixed-header="true"
+              
+            >
+            </v-data-table>
+          </div>
             
-          >
-            
-          </v-data-table>
         </v-card>
       </div>
     </div>
@@ -195,3 +198,10 @@ export default {
   },
 };
 </script>
+<style>
+.v-data-table /deep/ .sticky-header {
+  position: sticky;
+  overflow: unset;
+  top: 0;
+}
+</style>

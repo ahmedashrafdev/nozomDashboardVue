@@ -8,13 +8,10 @@ export const locale = {
   branch_revenue: "Branch Revenue",
   share_between_branches: "Profit Share between branches",
   logout: "logout",
-  cashtray_report: "annual shifts report",
-  open_cashtray_report: "annual shifts report",
-  day: "day",
-  open_cashtray_desc:
-    "This report enables you to view Shifts details of a specific year...",
-  cashtray_desc:
-    "This report enables you to view Shifts details of a specific year...",
+  select_year:"select year",
+  select_account:"select account",
+  from_date: "from date",
+  to_date: "to date",
   mo1: "January",
   mo2: "February",
   mo3: "March",
@@ -24,6 +21,8 @@ export const locale = {
   mo7: "July",
   mo8: "August",
   mo9: "September",
+  monthly_salels : 'monthly sales',
+  daily_salels : 'daily sales',
   mo10: "October",
   mo11: "November",
   mo12: "December",
@@ -31,15 +30,19 @@ export const locale = {
   MonthNo: "month",
   AverageCash: "average cash",
   hi: "Hi",
+  select_store:"select store",
+  search : "search",
+  totals:"totals",
+  select_date:"select date",
+  Bankin:"Bank in",
   branch_profit: "Branch Profit",
   branch_profit_share: "Profit Share between branches",
   branch_revenue_share: "Revenue Share between branches",
   NoOfCashTry: "number of cash",
+  AccountCode : "code",
+  AccountName : "account name",
   AvgBasket: "average basket",
   cashtray: "cash tray",
-  topsales_report: "most selling items report",
-  topsales_desc:
-    "By this report you can know more about your top selling items during a specific month or year...",
   EmpCode: "EmpCode",
   OpenDate: "OpenDate",
   StartCash: "StartCash",
@@ -51,8 +54,9 @@ export const locale = {
   ItemName: "Item Name",
   TotalAmount: "Total Amount",
   TotalQnt: "Total quantity",
+  sign_out: "sign out",
   Profit: "Profit",
-  Disc: "Disc",
+  Disc: "Discount",
   server_err_header: "we couldn't connect to your local server :(",
   server_err_text:
     "Check that the server that you have in your shop is turned on, online and running.if you have an El Nozom EC Firewall please check that it is powered on, online and connected to your server.If these steps didn’t solve the problem, please contact our support…",
@@ -62,6 +66,7 @@ export const locale = {
     OPENCASHTRAY: "open cashtray",
     NEW: "new",
     ACTIONS: "Actions",
+    REPORTS:"reports",
     CREATE_POST: "Create New Post",
     PAGES: "Pages",
     FEATURES: "Features",
@@ -157,4 +162,25 @@ export const locale = {
       },
     },
   },
+
+
+
+
+
+
+  cashtray_report: "annual shifts report",
+  open_cashtray_report: "annual shifts report",
+  open_cashtray_desc:
+  "This report enables you to view Shifts details of a specific year...",
+  cashtray_desc:
+  "This report enables you to view Shifts details of a specific year...",
+  topsales_report: "most selling items report",
+  topsales_desc:
+    "By this report you can know more about your top selling items during a specific month or year...",
+  flow_report:"flow_report",
+  flow_desc:"flow_desc",
+  suppliers_report:"suppliers_report",
+  suppliers_desc:"suppliers_desc",
+  
+
 };

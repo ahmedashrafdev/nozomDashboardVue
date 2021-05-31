@@ -19,7 +19,7 @@
                     append-outer-icon="event"
                     menu-props="auto"
                     hide-details
-                    label="Select Year"
+                    :label="$t('select_year')"
                     single-line
                   ></v-select>
                 </v-col>
@@ -34,7 +34,7 @@
                     append-outer-icon="apache-kafka"
                     menu-props="auto"
                     hide-details
-                    label="Select Store"
+                    :label="$t('select_store')"
                     single-line
                   ></v-select>
                 </v-col>
