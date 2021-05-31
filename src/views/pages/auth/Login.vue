@@ -5,7 +5,7 @@
       <!--begin::Signin-->
       <div class="kt-login__form">
         <div class="kt-login__title">
-          <h3>Sign In</h3>
+          <h3>{{$t('login')}}</h3>
         </div>
 
         <!--begin::Form-->
@@ -35,7 +35,7 @@
             ></b-form-input>
 
             <b-form-invalid-feedback id="input-1-live-feedback">
-              Email is required and a valid email address.
+              {{$t('email_required')}}
             </b-form-invalid-feedback>
           </b-form-group>
 
@@ -54,7 +54,7 @@
             ></b-form-input>
 
             <b-form-invalid-feedback id="input-2-live-feedback">
-              Password is required.
+              {{$t('password_required')}}
             </b-form-invalid-feedback>
           </b-form-group>
 

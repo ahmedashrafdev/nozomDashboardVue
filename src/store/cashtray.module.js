@@ -66,7 +66,7 @@ const state = {
       {
         filterable: false,
         align: "center",
-        text: i18n.t("TotalVisa"),
+        text: i18n.t("TVisa"),
         value: "TotalVisa",
       },
       

@@ -24,10 +24,9 @@
           </div>
           <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver">
             <div class="kt-grid__item kt-grid__item--middle">
-              <h3 class="kt-login__title">Welcome to Elnozom!</h3>
+              <h3 class="kt-login__title">{{$t('welcome')}}</h3>
               <h4 class="kt-login__subtitle">
-                The ultimate Adminpanel &amp; admin theme for next generation
-                web apps.
+                {{$t('desc')}}
               </h4>
             </div>
           </div>
@@ -39,15 +38,15 @@
                   target="_blank"
                   class="kt-link ml-1"
                 >
-                  All Copyrights Reserved To ELNOZOM
+                  {{$t('copyrights')}}
                 </a>
               </div>
               <div class="kt-login__menu">
                 <a href="http://www.elnozom.com/?page_id=39" class="kt-link"
-                  >About</a
+                  >{{$t('about')}}</a
                 >
                 <a href="http://www.elnozom.com/?page_id=42" class="kt-link"
-                  >Contact</a
+                  >{{$t('contact')}}</a
                 >
               </div>
             </div>

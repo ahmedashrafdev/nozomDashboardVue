@@ -11,7 +11,7 @@
       <div class="kt-footer__copyright">
         2021 &nbsp;&copy;&nbsp;
         <a href="http://www.elnozom.com/" target="_blank" class="kt-link ml-1">
-          All Copyrights Reserved To ELNOZOM
+         {{$t('copyrights')}}
         </a>
       </div>
       <div class="kt-footer__menu">
@@ -19,13 +19,13 @@
           href="http://www.elnozom.com/?page_id=39"
           target="_blank"
           class="kt-footer__menu-link kt-link"
-          >About</a
+          >{{$t('about')}}</a
         >
         <a
           href="http://www.elnozom.com/?page_id=42"
           target="_blank"
           class="kt-footer__menu-link kt-link"
-          >Contact</a
+          >{{$t('contact')}}</a
         >
       </div>
     </div>

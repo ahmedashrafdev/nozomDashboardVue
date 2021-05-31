@@ -3,6 +3,10 @@ export const locale = {
   TRANSLATOR: {
     SELECT: "Select your language",
   },
+  welcome : "Welcome to Elnozom!",
+  email_required : "Email is required and a valid email address.",
+  password_required : "Password is required",
+  desc : "The ultimate Adminpanel & admin theme for next generation web apps. ",
   TVisa: "total visa",
   TVoid: "total void",
   branch_revenue: "Branch Revenue",
@@ -167,7 +171,9 @@ export const locale = {
 
 
 
-
+  copyrights:"2021 © all copyrights reserved to el nozom ",
+  about:"about",
+  contact:"contact",
   cashtray_report: "annual shifts report",
   open_cashtray_report: "annual shifts report",
   open_cashtray_desc:
